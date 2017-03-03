@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TVTC Conference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="layout" content="main"/>
+
+    <link href="../assets/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
+    <link href='../assets/css/nprogress.css' rel='stylesheet' />
+
+    <style>
+    </style>
+
+</head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="javascript:void(0);" class="brand"><img src="../assets/img/TVTCLogo.png" width="30" />TVTC Conference System</i></a>
+                    <a href="javascript:void(0);" style="padding:0;" class="pull-right"><img src="../assets/img/Conf_Logo.png" width="60" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="body-nav body-nav-horizontal body-nav-fixed has out">
+            <div class="container">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <i class="icon-dashboard icon-large"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./register.html">
+                            <i class="icon-list-alt icon-large"></i> Registration
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./attendance.html">
+                            <i class="icon-barcode icon-large"></i> In-Out
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:void(0);">
+                            <i class="icon-calendar icon-large"></i> Lists
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./settings.html">
+                            <i class="icon-cogs icon-large"></i> Settings
+                        </a>
+                    </li>                                                                                                
+                </ul>
+            </div>
+        </div>
+
+        <div id="body-container" class="has out">
+            <div id="body-content">
+                
+    <section class="page container">        
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li class="divider">
+                    <i class="icon-home"></i>
+                    <a href="../index.html">Home</a>
+                    <span class="divider"> /</span>
+                </li>
+                <li class="active">Users Lists</li>
+            </ul><!-- /.breadcrumb -->
+        </div>
+        <div class="row">
+            <div class="span16">
+                <div class="box pattern pattern-sandstone">
+                    <div class="box-header">
+                        <i class="icon-table"></i>
+                        <h5>
+                            Registered
+                        </h5>
+
+                        <div id="pager" class="pager">
+                            <form>
+                            <img src="../assets/img/first.png" class="first"/>
+                            <img src="../assets/img/prev.png" class="prev"/>
+                            <input type="text" class="pagedisplay" style="width:40px;" />
+                            <img src="../assets/img/next.png" class="next"/>
+                            <img src="../assets/img/last.png" class="last"/>
+                            <select class="pagesize" style="width:60px;">
+                                <option selected="selected"  value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option  value="40">40</option>
+                            </select>
+                            </form>
+                        </div>                        
+                    </div>
+                    <div class="box-content box-table">
+                        <table id="sample-table" class="table table-hover table-bordered tablesorter">
+                            <thead>
+                                <tr>
+                                    <th width="15%">Date</th>
+                                    <th width="12%">Barcode #</th>
+                                    <th width="4%">Event ID</th>
+                                    <th width="30%">Email</th>
+                                    <th width="15%">In</th>
+                                    <th width="15%">Out</th>
+                                    <th class="td-actions"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="registered_lists">
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+
+    
+
+            </div>
+        </div>
+
+        <script>
+         window.$ = window.jQuery = require('../assets/scripts/jquery.js');
+        </script>
+        <script src="../assets/scripts/jquery-migrate-1.2.1.js"></script>
+        <script src='../assets/scripts/nprogress.js'></script>        
+        <script src="../assets/scripts/serialize.js"></script>  
+        <script src="../assets/scripts/scripts.js"></script>  
+        <script src="../assets/scripts/jquery/jquery-tablesorter.js" type="text/javascript" ></script>
+        <script src="../assets/scripts/jquery.tablesorter.pager.js" type="text/javascript" ></script>
+
+        <script type="text/javascript">
+            var s = "";
+           db.events.loadDatabase(function (err) {
+              db.events.find({}, function (err, docs) {
+                    var appendobj = "";
+                    var jsonObject = JSON.stringify(docs);
+                    
+                    $.each( docs, function( index, object ){
+                      appendobj += "<tr>";
+                      appendobj += "<td>" + object._datetime + "</td>";
+                      appendobj += "<td>" + object.euser_barcode + "</td>";
+                      appendobj += "<td>" + (object.event_id ? + object.event_id : "")+ "</td>";
+                      appendobj += "<td>" + object.euser_email + "</td>";
+                      appendobj += "<td>";
+                      appendobj += check_login(object.euser_barcode);
+                      appendobj += "</td>";
+                      appendobj += "<td>";
+                      appendobj += check_login_last(object.euser_barcode);
+                      appendobj += "</td>";
+                      appendobj += '<td class="td-actions">' + 
+                                        '<a href="javascript:void(0);" onclick="javascript:test($(this));" title="' + object._id + '" class="del btn btn-small btn-danger">' + 
+                                            '<i class="btn-icon-only icon-remove"></i>' + 
+                                        '</a>' + 
+                                    '</td>';
+                      appendobj += "</tr>";
+                    });
+                    $(function() {
+                        $("#registered_lists").html(appendobj);
+                        $('#sample-table').tablesorter().tablesorterPager({container: $("#pager"),size: 10});
+                    });
+              });
+            });
+            
+           
+            var check_login = function(bcode, attend) {
+                var matched = [];
+                
+                db.scanbcode.find({ euser_barcode: bcode}, function (err, docs) {
+                    $.each( docs, function( index, object ){
+                        if(object.attendance[0] != undefined) {
+                            matched.push(object.attendance[0]);
+                        }
+                    });      
+
+                    $("." + bcode).html(matched);
+                });
+                return "<span class='" + bcode + "'>" + matched + "</span>"; 
+            };
+
+            var check_login_last = function(bcode) {
+                var last = [];
+                db.scanbcode.find({ euser_barcode: bcode}, function (err, docs) {
+                    $.each( docs, function( index, object ){
+                        if(object.attendance[object.attendance.length - 1] != undefined) {
+                            last.push(object.attendance[object.attendance.length - 1]);
+                        }
+                    });          
+                    $(".alast" + bcode).html(last);
+                });    
+              return "<span class='alast" + bcode + "'>" + last + "</span>";
+            };
+
+            function test(el) {
+                if(confirm('Are you sure you want to remove this ? ')) {
+                    db.events.remove({ _id: el.attr('title') }, {}, function (err, numRemoved) {
+                        el.parent().parent().fadeOut( "slow", function() {
+                            $(this).remove();
+                        });                      
+                    });
+                }
+                return false;
+            }
+        </script>
+	</body>
+</html>

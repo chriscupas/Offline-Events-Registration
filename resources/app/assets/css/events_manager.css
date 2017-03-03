@@ -1,0 +1,1000 @@
+div#em-loading {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #FFFFFF url(../images/loading.gif) 50% 50% no-repeat;
+	left: 0px;
+	top: 0px;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	z-index: 99998;
+}
+.em-search-ajax {
+	position: relative;
+}
+/* Warnings */
+.em-warning {
+	margin: 10px 0px;
+	padding: 10px;
+	color: #333;
+	border-radius: 3px;
+}
+.em-warning p {
+	margin: 10px 0px !important;
+	padding: 0px;
+	color: #333
+}
+.em-warning-errors {
+	background-color: #FFEBE8;
+	border: 1px solid #C00;
+}
+.em-warning-confirms {
+	background-color: #f1fff0;
+	border: 1px solid #a8d144;
+}
+a.em-button {
+	float: right;
+	padding: 5px 10px;
+	margin: 5px;
+	background: #EEE;
+	color: #333;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	display: inline-block;
+	text-decoration: none;
+}
+a.em-button:hover {
+	text-decoration: none;
+}
+/* Search Form */
+.em-search div {
+	display: inline;
+}
+.em-search label {
+	display: none;
+}
+.em-search .hidden {
+	display: none !important;
+}
+/* Custom Search CSS */
+div.css-search {
+	margin-bottom: 20px;
+}
+div.em-search.css-search label {
+	display: inline;
+}
+div.em-search.css-search div {
+	display: block;
+}
+div.css-search input, div.css-search select, div.css-search option, div.css-search div, div.css-search span, div.css-search button {
+	width: auto;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	float: none;
+	display: auto;
+	font-size: 14px; /* reset everything */
+}
+div.css-search input, div.css-search select {
+	padding: 5px;
+}
+div.css-search {
+	
+	border-radius: 3px;
+	padding: 5px;
+	min-height: 40px;
+	position: relative;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+/* Main Search */
+div.css-search.has-advanced div.em-search-main {
+	padding-bottom: 8px;
+	border-bottom: 2px solid #005e2a;
+}
+div.css-search div.em-search-main div {
+	display: inline;
+}
+div.css-search div.em-search-field {
+	padding: 5px 0px;
+}
+div.css-search input.em-search-text, div.css-search input.em-search-geo {
+	width: 90%;
+    font-size: 15px;
+    line-height: 16px;
+    padding: 7px;
+    border: none;
+    outline: none !important;
+    color: #666;
+    text-overflow: ellipsis;
+}
+div.css-search div.em-search-geo {
+	margin: 0px 0px 0px 5px;
+	padding-left: 30px;
+	background: url(../images/search-geo.png) 0px 3px no-repeat;
+}
+div.css-search div.em-search-text {
+	margin: 0px 0px 0px 5px;
+	padding-left: 20px;
+	background: url(../images/search-mag-ico.png) 0px 4px no-repeat;
+}
+			/* Placeholder text in main section */ 
+				div.css-search div.em-search-main div.em-search-field input::-webkit-input-placeholder { /* WebKit browsers */
+font-size:16px;
+line-height:16px;
+padding:3px 0px;
+border:none;
+outline:none;
+color:#666;
+}
+ div.css-search div.em-search-main div.em-search-field input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+font-size:16px;
+line-height:16px;
+padding:8px;
+border:none;
+outline:none;
+color:#666;
+}
+ div.css-search div.em-search-main div.em-search-field input::-moz-placeholder { /* Mozilla Firefox 19+ */
+font-size:16px;
+line-height:16px;
+padding:8px;
+border:none;
+outline:none;
+color:#666;
+}
+ div.css-search div.em-search-main div.em-search-field input:-ms-input-placeholder { /* Internet Explorer 10+ */
+font-size:16px;
+line-height:16px;
+padding:8px;
+border:none;
+outline:none;
+color:#666;
+}
+/* Geo field specifics */
+div.css-search.has-search-geo.has-search-term input.em-search-text, div.css-search.has-search-geo.has-search-term input.em-search-geo {
+	width: 40%;
+}
+.pac-container .pac-item {
+	padding: 4px 4px !important;
+}
+/* Main Search Button */
+div.css-search div.em-search-main .em-search-submit {
+	position: absolute;
+    top: 5px;
+    right: 5px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #005e2a;
+    border:none;
+    display: inline-block;
+    color: #ffffff;
+    font-weight: bold;
+        padding: 8px 9px 10px 10px;
+    text-decoration: none;
+        -webkit-border-radius: 0;
+    border-radius: 0;
+    line-height: 23px;
+}
+div.css-search div.em-search-main .em-search-submit:hover {
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #C4DB99), color-stop(1, #A4C48A) );
+	background: -moz-linear-gradient( center top, #C4DB99 5%, #A4C48A 100% );
+	background: -ms-linear-gradient(top, #C4DB99, #A4C48A);
+	background: -o-linear-gradient(top, #C4DB99, #A4C48A);
+	background: linear-gradient(top, #C4DB99, #A4C48A);
+	background-color: #A4C48A;
+}
+div.css-search div.em-search-main .em-search-submit img {
+	border: none;
+	padding: 0;
+	margin: 0;
+	box-shadow: none;
+	border-radius: 0;
+	background: none;
+}
+/* IE7 Hack */ div.css-search div.em-search-main button.em-search-submit span {
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: url('../images/search-mag.png') 0px 0px no-repeat;
+}
+/* Advanced Search */
+div.css-search div.em-search-location, div.em-search-location-meta {
+	margin: 0px;
+	padding: 0px;
+}
+div.css-search div.em-search-advanced, div.css-search div.em-search-options {
+	padding: 5px 8px;
+}
+div.css-search div.em-search-advanced > div {
+	clear: both;
+}
+div.css-search div.em-search-advanced label {
+	display: block;
+	float: left;
+	min-width: 100px;
+}
+div.css-search div.em-search-advanced .em-search-submit {
+	margin: 10px 0px;
+}
+div.css-search.no-search-main div.em-search-advanced.visible div {
+	display: inline;
+	clear: none;
+}
+div.css-search.no-search-main div.em-search-advanced.visible label {
+	display: none;
+}
+div.css-search div.em-search-options {
+	text-align: right;
+}
+/* Booking Form */
+.em-booking {
+	margin: 15px 0px 10px 0px;
+	position: relative;
+	padding: 40px 20px;
+	margin-bottom: 30px;
+	border: 2px solid #fff;
+	background: #efefef;
+	padding: 30px 20px;
+	-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+}
+.em-booking-form {
+	position: relative;
+	clear: left;
+}
+.em-booking-form-details {
+	padding: 10px;
+	width: 100%;
+	float: left;
+}
+.block_left, .block_right {
+	width: 49%;
+	display: block;
+}
+.block_left {
+	float: left;
+}
+.block_right {
+	float: right;
+}
+.em-booking-form-details input.input {
+	width: 250px;
+}
+.em-booking-form-details textarea {
+	max-width: 690px;
+	width: 100%;
+}
+.em-booking-form p {
+	clear: left;
+}
+.em-booking-form label {
+	display: block;
+	float: left;
+}
+.em-booking-form span.input-group input {
+	margin-left: -20px;
+}
+.em-booking-form span.input-group {
+	display: block;
+	margin-left: 120px;
+}
+.em-booking-form label {
+	display: inline-block;
+	width: 100px;
+}
+.em-booking-form-details .em-booking-submit {
+	width: auto;
+}
+/* Tickets */
+.em-tickets {
+	margin-bottom: 20px;
+}
+/* Message Errors */
+div.em-booking-message {
+	margin: 10px 0px;
+	padding: 10px;
+	color: #333;
+	border-radius: 3px;
+}
+div.em-booking-message p {
+	margin: 10px 0px !important;
+	padding: 0px;
+	color: #333;
+}
+div.em-booking-message-success {
+	background-color: #f1fff0;
+	border: 1px solid #a8d144;
+}
+div.em-booking-message-error {
+	background-color: #FFEBE8;
+	border: 1px solid #C00;
+}
+/* Optional Login Form */
+div.em-booking-login {
+	padding: 10px 10px 10px 20px;
+	width: 40%;
+	float: right;
+	border-left: 1px solid black;
+}
+div.em-booking-login label {
+	display: inline-block;
+	width: 90px;
+}
+div.em-booking-login p {
+	margin: 10px 0px !important;
+	padding: 0px !important;
+}
+div.em-booking-login input {
+	margin: 0px;
+}
+/* Add Event Form */
+#event-form h4 {
+	margin: 25px 0px 15px 0px;
+	font-weight: bold;
+}
+#event-form p {
+	margin-top: 10px;
+}
+#event-form .inside {
+	clear: both;
+	margin-bottom: 20px;
+}
+#buddypress .wp-editor-wrap table {
+	width: auto;
+}
+#buddypress .wp-editor-wrap table tr td, #buddypress .wp-editor-wrap table tr th {
+	padding: 0;
+}
+#buddypress .wp-editor-wrap a.button, #buddypress .wp-editor-wrap button, #buddypress .wp-editor-wrap input[type=submit], #buddypress .wp-editor-wrap input[type=button], #buddypress .wp-editor-wrap input[type=reset] {
+	padding: 0px 10px 1px;
+}
+/* Event Details */
+#event-form #event-name {
+	width: 80%;
+	padding: 2px;
+}
+#event-form .event-extra-details {
+	margin-top: 20px;
+}
+#event-form .event-extra-details select {
+	vertical-align: top;
+}
+/*Tickets*/
+#event-rsvp-box {
+	margin: 10px;
+}
+#event-rsvp-options label {
+	font-weight: bold;
+}
+/*Tickets*/
+.em-tickets-row .ticket-status span.ticket_on {
+	display: block;
+	width: 10px;
+	height: 10px;
+	background: green;
+}
+.em-tickets-row .ticket-status span.ticket_off {
+	display: block;
+	width: 10px;
+	height: 10px;
+	background: red;
+}
+.em-tickets-row .ticket-status span.ticket_new {
+	display: block;
+	width: 10px;
+	height: 10px;
+	background: grey;
+}
+#em-tickets-form th {
+	width: auto;
+}
+#em-tickets-form th.ticket-status {
+	width: 20px;
+}
+/* Ticket Forms */
+.em-ticket-form .ticket-options {
+	margin-top: 10px;
+}
+.em-ticket-form > div > div, #em-tickets-form .ticket-dates > div {
+	clear: both;
+	padding-top: 4px;
+}
+.em-ticket-form label {
+	display: block;
+	float: left;
+	min-width: 105px;
+	padding-right: 5px;
+}
+#em-tickets-form .ticket-name input, #em-tickets-form .ticket-description textarea {
+	width: 50%
+}
+#em-tickets-form .em-ticket-form-actions {
+	clear: both;
+}
+#em-tickets-form .ticket-spaces input, #em-tickets-form .ticket-price input {
+	width: 80px;
+}
+#em-tickets-form .ticket-dates input.em-date-input-loc {
+	width: 90px;
+}
+#em-tickets-form .ticket-required input, #em-tickets-form .ticket-roles input {
+	width: auto;
+}
+#em-tickets-form .ticket-roles div {
+	margin-left: 110px;
+}
+/* The editor */
+#wp-em-editor-content-wrap table {
+	margin-bottom: 0px;
+}
+/* Location form */
+#em-location-data table.em-location-data td, #em-location-data table.em-location-data th {
+	vertical-align: top;
+	border: none;
+}
+#em-location-data table.em-location-data select {
+	width: 100%;
+}
+#em-location-data table.em-location-data {
+	width: 50%;
+	float: left;
+	border: none;
+}
+#em-location-data .em-location-map-container {
+	width: 50%;
+	height: 300px;
+	float: left;
+}
+#em-location-data .em-location-map-404, #em-location-data .em-location-map-content {
+	width: 100%;
+	height: 100%;
+}
+#em-location-data .em-location-map-404 {
+	vertical-align: middle;
+	text-align: center;
+}
+/* Booking Admin */
+	/* Generic Table Info */
+table.em-form-fields td, table.em-form-fields th {
+	text-align: left;
+	vertical-align: top;
+}
+table.em-form-fields th {
+	padding: 0px 20px 5px 0px;
+}
+/* Bookings Table */
+.em_obj {
+	position: relative;
+}
+.em_obj .table-wrap {
+	clear: left;
+	padding-top: 5px;
+}
+.em-bookings-table .em-bookings-table-export, .em-bookings-table .em-bookings-table-settings {
+	float: left;
+	display: block;
+	margin: 2px 5px;
+	width: 25px;
+	height: 25px;
+}
+.em-bookings-table .em-bookings-table-export {
+	background: url(../images/csv.png) 0px 0px no-repeat;
+}
+.em-bookings-table .em-bookings-table-settings {
+	background: url(../images/settings.png) 0px 0px no-repeat;
+}
+/* Settings & Export */
+#em-bookings-table-export, #em-bookings-table-settings {
+	width: 500px;
+	height: 75%;
+}
+#em-bookings-table-export form, #em-bookings-table-settings form {
+	height: 100%;
+	overflow: auto;
+}
+/* Sorting */
+.em-bookings-table-overlay ul.em-bookings-cols-sortable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0 0 10px;
+	float: left;
+	margin-right: 10px;
+}
+.em-bookings-table-overlay ul.em-bookings-cols-sortable li {
+	margin: 0 5px 5px 5px;
+	padding: 3px 8px;
+	font-size: 12px;
+	width: 120px;
+	font-weight: none;
+	cursor: move;
+}
+.em-bookings-table-overlay ul.em-bookings-cols-sortable li.ui-state-highlight {
+}
+.em-bookings-table-overlay ul.em-bookings-cols-sortable li.ui-state-default {
+	color: #999;
+}
+#em-bookings-export-cols-inactive, #em-bookings-cols-inactive {
+	width: 300px;
+}
+#em-bookings-export-cols-inactive li, #em-bookings-cols-inactive li {
+	float: left;
+}
+/* Single Booking Edit View */
+#em-bookings-admin-booking .em-booking-single-info {
+	display: none;
+}
+#em-bookings-admin-booking .em-booking-single-form {
+	padding-right: 20px;
+}
+/* Printable stuff */
+body#printable {
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	text-align: center;
+}
+body#printable #container {
+	margin: 0 auto;
+	width: 780px;
+	text-align: left;
+}
+body#printable table#bookings-table {
+	width: 600px;
+	border-spacing: 0px;
+}
+body#printable table#bookings-table td {
+	padding: 5px 0;
+}
+body#printable table#bookings-table td.spaces-number {
+	text-align: right;
+	padding-right: 20px;
+}
+body#printable table#bookings-table th {
+	text-align: left;
+	margin-left: 5px;
+}
+body#printable table#bookings-table tr#booked-spaces td {
+	border-top: 2px solid #999;
+}
+body#printable table#bookings-table td.total-label {
+	text-align: right;
+}
+body#printable table#bookings-table tr#booked-spaces td.spaces-number, table#bookings-table tr#available-spaces td.spaces-number {
+	font-weight: bold;
+}
+/* Calendar Styles */
+table.em-calendar td {
+	padding: 2px 4px;
+	text-align: center;
+}
+table.em-calendar.table tr.days-names {
+	font-weight: bold;
+}
+table.em-calendar td.eventless-pre, .em-calendar td.eventless-post {
+	color: #ccc;
+}
+table.em-calendar td.eventful-pre a, table.em-calendar td.eventful-post a {
+	color: #aaa;
+	text-decoration: underline;
+}
+table.em-calendar td.eventful a, table.em-calendar td.eventful-today a {
+	color: #6e9fbc;
+}
+table.em-calendar td.eventful-today a {
+	font-weight: bold;
+}
+table.em-calendar td.eventless-today, table.em-calendar td.eventful-today {
+	background-color: #CFCFCF;
+}
+table.em-calendar thead {
+	font-size: 120%;
+	font-weight: bold;
+}
+table.fullcalendar {
+	border-collapse: collapse;
+}
+table.fullcalendar td {
+	text-align: left;
+	width: 50px;
+	height: 50px;
+	border: 1px solid #888;
+}
+div.em-calendar-wrapper {
+	position: relative;
+}
+/*
+Maps - if the info balloons don't look right on your site, chances are it's a CSS issue. 
+Google is VERY sensitive to CSS rules for the infowindows, making it hard to accommodate every theme in WP. 
+Please edit your theme's CSS to override this 
+*/
+.em-map-balloon .em-map-balloon-content {
+	margin: 0px 0px 0px 0px !important;
+	padding: 0px 0px 20px 0px !important;
+	font-size: 12px !important;
+	color: #000000 !important;
+	width: auto !important;
+	max-width: none !important;
+	height: auto !important;
+	max-height: none !important;
+}
+.em-location-map img, .em-locations-map img, #em-map img {
+	max-width: none !important;
+	background: none !important;
+	border: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	height: auto;
+	width: auto;
+}
+/* Time Picker */
+#start-time, #end-time {
+	width: 7em;
+}
+#start-time.error, #end-time.error {
+	border: #cc0000 1px solid;
+}
+div.time-picker {
+	position: absolute;
+	height: 191px;
+	width: 5em; /* needed for IE */
+	overflow: auto;
+	background: #fff;
+	border: 1px solid #aaa;
+	z-index: 99;
+	margin: 0;
+}
+div.time-picker-12hours {
+	width: 7em; /* needed for IE */
+}
+div.time-picker ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+div.time-picker li {
+	cursor: pointer;
+	height: 10px;
+	font: 12px/1 Helvetica, Arial, sans-serif;
+	padding: 4px 3px;
+}
+div.time-picker li.selected {
+	background: #0063CE;
+	color: #fff;
+}
+/* Custom */	
+.site-header {
+	background: url(../version2/images/bg_main.png) repeat-x left top !important;
+	height: 166px;
+}
+.site-title {
+	text-indent: -9999px;
+}
+.site-description {
+	text-indent: -9999px;
+	display: none;
+}
+#colophon {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	background: none;
+	border-top: 1px solid #dfdfdf;
+	clear: both;
+}
+.site-header .home-link {
+	min-height: 95px !important;
+}
+.nav-menu .current_page_item > a, .nav-menu .current_page_ancestor > a, .nav-menu .current-menu-item > a, .nav-menu .current-menu-ancestor > a, .nav-menu li:hover > a, .nav-menu li a:hover, .nav-menu li:focus > a, .nav-menu li a:focus {
+	color: #4294D2 !important;
+	background: none !important;
+}
+.nav-menu li a {
+}
+.navbar {
+	/* background-color: #2ca1ce !important; */
+	background: none !important;
+}
+.description {
+	font-size: 13px;
+	font-style: italic;
+}
+.others {
+	margin-top: 10px;
+	float: left;
+}
+.comment-respond {
+	padding: 30px 0;
+	border-top: 4px solid #007046;
+	background: url(../version2/images/footer_bg.png) repeat-x;
+}
+.lang_area, a.lang_area {
+	display: block;
+	height: 27px;
+}
+.inner_header {
+	margin: 0 auto;
+	max-width: 1143px;
+	width: 100%;
+	background: url(../version2/images/bg_header.png) no-repeat 0 28px;
+}
+.site-main {
+	position: relative;
+	max-width: 1143px;
+	width: 100%;
+	margin: 0 auto;
+	/*background: url(../version2/images/bg_contents.png) no-repeat top #fff;*/
+	margin-top: -38px;
+}
+.lang_area ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 11px;
+}
+.lang_area ul li {
+	float: left;
+	display: inline;
+	margin: 3px 10px;
+}
+.qtrans_flag_and_text {
+	background-position: 2px 5px !important;
+	padding-left: 25px !important;
+}
+.widget {
+	border-top: 4px solid #007046;
+	background: url(../version2/images/footer_bg.png) repeat-x;
+}
+.hentry .entry-header {
+	margin: 0;
+}
+.sidebar .entry-header {
+}
+h1.entry-title {
+	font-size: 48px;
+	text-transform: capitalize;
+}
+#user_switching_switch_on a {
+	background: #e05d22;
+	background: -webkit-linear-gradient(top, #e05d22 0%, #d94412 100%);
+	background: linear-gradient(to bottom, #e05d22 0%, #d94412 100%);
+	border: none;
+	border-bottom: 3px solid #b93207;
+	border-radius: 2px;
+	color: #fff;
+	display: inline-block;
+	padding: 11px 24px 10px;
+	text-decoration: none;
+}
+/** Version 2 **/
+.navbar {
+	/*background-color: #414851 !important;*/
+}
+.nav-menu li a {
+	padding: 14px !important;
+}
+.main-navigation {
+	min-height: 44px !important;
+}
+.site-header .search-form {
+	top: -80px !important;
+}
+.site-main {
+	margin-top: 40px !important;
+}
+.nav-menu li {
+	border-left: 1px solid #222;
+	border-right: 1px solid #444;
+	margin-right: -2px;
+}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+	background-color: #ffffff;
+	border: 1px solid #cccccc !important;
+	/*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;*/
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	/*border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;*/
+}
+textarea {
+	height: 140px !important;
+}
+.em-booking {
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.nav-menu li:first-child {
+	border-left: none !important;
+}
+.main-navigation {
+	/*background: #333 !important;
+	border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+	border: 0 !important;
+	border-left: 1px solid #e7e7e7 !important;
+	border-right: 1px solid #e7e7e7 !important;
+	border-top: 1px solid #e7e7e7 !important;
+	border-bottom: 1px solid #e7e7e7 !important;
+	-webkit-box-shadow: 0px -2px 14px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px -2px 14px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px -2px 14px 0px rgba(0,0,0,0.75);*/
+}
+.nav-menu li a {
+	color: #bbb !important;
+}
+.nav-menu li a:hover, .nav-menu .current_page_item > a {
+}
+.inner_header {
+	background: none !important;
+	margin-top: -30px !important;
+	    height: 148px;
+}
+.lang_area ul li {
+	float: right;
+}
+.site-header {
+	/*background: url(../version2/images/bg_main_blue.png) repeat-x scroll top !important;*/
+	background: none !important;
+	border-top: 30px solid transparent;
+}
+.site-header .search-field {
+	background-color: #fff !important;
+}
+.site {
+}
+.widget {
+}
+.widget {
+	border-top: 0 !important;
+	background: none !important;
+}
+.widget .widget-title {
+	background: #222;
+	padding: 10px;
+	color: #fff;
+}
+a.qtrans_flag_and_text, li.language_item a {
+	color: #fff !important;
+}
+.login_form_book {
+	background: #f4f6f5;
+	margin: 1% 3% 1% 3%;
+	padding: 20px;
+	/*  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);*/
+	border-top: 1px solid #ddd;
+	background: #f5f5f5;
+	clear: both;
+}
+.site-main {
+}
+html {
+	background-color: #fff;
+	/*background-image: url("../version2/images/mini-hero-bg.png?v=7f269bbbdb22");*/
+	background-repeat: repeat;
+}
+#main {
+	overflow: hidden !important; /* needed to stretch parent container since children are floated */
+	/*-webkit-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.75);*/
+}
+.home #primary.content-area {
+	width: 70% !important;
+	float: left !important;
+}
+.home .site-main .sidebar-container {
+	position: static !important;
+	float: right !important;
+	width: 30% !important;
+	height: auto !important;
+}
+.site-main .widget-area {
+	margin-right: 0 !important;
+}
+.home.sidebar .entry-header, .home.sidebar .entry-content, .home.sidebar .entry-summary, .home.sidebar .entry-meta {
+	padding: 0 0px 29px 0px !important;
+}
+.entry-content a, .comment-content a, .entry-content a:visited, .comment-content a:visited, .single-event .content-area a, .single-event .content-area a:visited {
+	color: #005e2a;
+}
+.terms_wrapper img {
+	top: 0;
+	margin: 5px;
+	display: inline-block;
+	vertical-align: top;
+}
+#TB_caption {
+	height: auto !important;
+}
+.site-footer .sidebar-container {
+	background-color: #129793;
+}
+.site-footer .widget-title {
+	margin-bottom: 0 !important;
+}
+.site-footer .widget-title + .textwidget, .site-footer .widget-title + ul, .site-footer div#avs_widget_gallery {
+	background: #F1F4F9 !important;
+	padding: 5px;
+}
+.site-footer .widget-title + ul {
+	margin-top: -5px;
+}
+section.related {
+	background-color: #e7ecea;
+}
+.tabs-style-iconbox nav ul li a {
+	color: #005e2a;
+}
+.tabs-style-iconbox nav ul li a:hover {
+	color: #74777b !important;
+	text-decoration: none;
+}
+.tabs-style-iconbox nav ul li {
+}
+#main {
+	min-height: 850px;
+	height: 100%;
+}
+h1.entry-title {
+	word-wrap: break-word;
+	background-color:#005e2a;
+	color:#fff;
+	font-size:30px;
+	    padding: 9px;
+		margin-bottom:30px;
+}
+h1.entry-title a
+{
+	color:#fff;
+}
+.required {
+	color: red;
+	font-weight: bold;
+	margin: 0 5px;
+}
+.eventless
+{
+	background-color:#acc7af;
+}
+.eventless-today
+{
+	background-color:#005e2a !important;
+	color:#f5f5f5;
+}
+.em-calendar td
+{
+	border:none;
+}
+.eventful
+{background-color:#09507a !important;color:#f5f5f5;}
+.em-calendar thead tr
+{
+	background-color:#005e2a !important;
+	color:#f5f5f5;
+}
+.em-calendar thead tr td a
+{
+	color:#f5f5f5;
+}
+.days-names
+{
+	background-color:#136f3c !important;
+	color:#f5f5f5;
+}

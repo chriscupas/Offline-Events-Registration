@@ -1,0 +1,20 @@
+{
+  "name": "tvtc-conference",
+  "version": "1.0.0",
+  "description": "TVTC Conference System",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "author": "chriscupas",
+  "dependencies": {
+    "activedirectory": "^0.7.2",
+    "async": "^1.5.2",
+    "bunyan": "^1.7.0",
+    "jsonfile": "^2.2.3",
+    "ldapjs": "^1.0.0",
+    "nedb": "^1.8.0",
+    "nonce": "^1.0.3",
+    "underscore": "^1.8.3"
+  }
+}

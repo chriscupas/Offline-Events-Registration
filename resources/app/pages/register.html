@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TVTC Conference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="layout" content="main"/>
+
+    <link href="../assets/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
+    <link href='../assets/css/nprogress.css' rel='stylesheet' />
+
+    <style>
+    </style>
+</head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="javascript:void(0);" class="brand"><img src="../assets/img/TVTCLogo.png" width="30" />TVTC Conference System</i></a>
+                    <a href="javascript:void(0);" style="padding:0;" class="pull-right"><img src="../assets/img/Conf_Logo.png" width="60" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="body-nav body-nav-horizontal body-nav-fixed has out">
+            <div class="container">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <i class="icon-dashboard icon-large"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:void(0);">
+                            <i class="icon-list-alt icon-large"></i> Registration
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./attendance.html">
+                            <i class="icon-barcode icon-large"></i> In-Out
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./lists.html">
+                            <i class="icon-calendar icon-large"></i> Lists
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./settings.html">
+                            <i class="icon-cogs icon-large"></i> Settings
+                        </a>
+                    </li>                                                                                                
+                </ul>
+            </div>
+        </div>
+
+        <div id="body-container" class="has out">
+            <div id="body-content">
+                
+    <section class="page container">        
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li class="divider">
+                    <i class="icon-home"></i>
+                    <a href="../index.html">Home</a>
+                    <span class="divider"> /</span>
+                </li>
+                <li class="active">Registration</li>
+            </ul><!-- /.breadcrumb -->
+        </div>
+        <div class="row">
+            <div class="span16">
+                <div class="box">
+                    <div class="box-header">
+                        <i class="icon-sign-blank"></i>
+                        <h5>Offline Registration</h5>
+                    </div>
+                    
+                    <div class="box-content">
+                    <form class="em-booking-form" name='booking-form' method='post' action='#em-booking'>
+                                <div id="em-booking" class="em-booking css-booking">
+                                                
+                                                
+                                            <input type='hidden' name='action' value='booking_add'/>
+                                            <input type='hidden' name="_datetime" class="_datetime" />             
+                                            <div class='em-booking-form-details'>
+                                                    <div class="span12">
+                                                        <label for='event_id'><span class="required">*</span>Event ID</label>
+                                                        <input type="text" name="event_id" maxlength="7" id="event_id" class="input" value="" />
+                                                    </div>
+                                                     <input type="hidden" name="euser_barcode" value="" />
+                                                     <input type="hidden" name="register_user" value="1" />  
+
+                                                    <div class="span7 pull-left">
+                                                        <p>
+                                                            <label for='user_field_work'>Category</label> 
+                                                            <select name="euser_user_field_work" id="user_field_work" style="width:260px;">
+                                                              <option></option>
+                                                                <option value="Media Specialist - إعلامي">Media Specialist - إعلامي</option><option value="Researcher - باحث">Researcher - باحث</option><option value="TVTC Staff - منسوبي المؤسسة">TVTC Staff - منسوبي المؤسسة</option><option value="Visitor - زائر">Visitor - زائر</option>             
+                                                              </select>
+                                                            </p>
+                                                        <p>
+                                                            <label for='euser_name'>Name</label>
+                                                            <input type="text" name="euser_name" id="euser_name" class="input" value="" />
+                                                        </p>
+                                                    </div>
+
+                                                <div class="span7 pull-right">
+                                                <p>     
+                                                <label for='user_idtype'>ID Type</label>
+                                                <select class="input" name="euser_user_idtype" id="user_idtype">
+                                                    <option value="iqama">Iqama</option>
+                                                    <option value="passport">Passport</option>
+                                                    <option value="saudi_id">Saudi ID</option>
+                                                    <!-- <option value="emp_id"></option>    -->
+                                                    <option value="others">Others</option>                                          
+                                                </select> 
+
+                                                <span class='others'>
+                                                    <input type="text" name="euser_user_idtype_others" class="input" placeholder="Other ID type" id="user_idtype_others" value="" class="regular-text" />
+                                                </span>
+
+                                                </p>
+                                                <p>
+                                                <label for='euser_idnum'><span class="required">*</span>ID number</label>
+                                                <input type="text" name="euser_idnum" class="input user_idnum_keyp"  id="euser_idnum" value="" class="regular-text" /><br />
+                                                <span class="description">Identification number</span><span id="errmsg"></span><span id="errs" style="color:red;font-size:12px;margin-left:38%;display:none;margin-top:-4%"></span>
+                                                </p>
+                                                <p id="p_department_no">
+                                                <label for='euser_department_no'>Department Number</label>
+                                                <input type="text" name="euser_department_no" class="input" id="euser_department_no" value="" class="regular-text" /><br />
+                                                </p>    
+                                                </div>
+
+                                                <div class="span7 pull-left">
+                                                <p id="p_user_phone_country_code">
+                                                <label for='dbem_phone'><span class="required">*</span> Phone</label>
+                                                <select name="euser_user_phone_country_code" class="user_phone_country_code" id="" style="width:160px;">
+                                                    <option data-countryCode="GB" value="44">UK (+44)</option>
+                                                    <option data-countryCode="US" value="1">USA (+1)</option>
+                                                    <optgroup label="Other countries">
+                                                        <option data-countryCode="DZ" value="213">Algeria (+213)</option>
+                                                        <option data-countryCode="AD" value="376">Andorra (+376)</option>
+                                                        <option data-countryCode="AO" value="244">Angola (+244)</option>
+                                                        <option data-countryCode="AI" value="1264">Anguilla (+1264)</option>
+                                                        <option data-countryCode="AG" value="1268">Antigua &amp; Barbuda (+1268)</option>
+                                                        <option data-countryCode="AR" value="54">Argentina (+54)</option>
+                                                        <option data-countryCode="AM" value="374">Armenia (+374)</option>
+                                                        <option data-countryCode="AW" value="297">Aruba (+297)</option>
+                                                        <option data-countryCode="AU" value="61">Australia (+61)</option>
+                                                        <option data-countryCode="AT" value="43">Austria (+43)</option>
+                                                        <option data-countryCode="AZ" value="994">Azerbaijan (+994)</option>
+                                                        <option data-countryCode="BS" value="1242">Bahamas (+1242)</option>
+                                                        <option data-countryCode="BH" value="973">Bahrain (+973)</option>
+                                                        <option data-countryCode="BD" value="880">Bangladesh (+880)</option>
+                                                        <option data-countryCode="BB" value="1246">Barbados (+1246)</option>
+                                                        <option data-countryCode="BY" value="375">Belarus (+375)</option>
+                                                        <option data-countryCode="BE" value="32">Belgium (+32)</option>
+                                                        <option data-countryCode="BZ" value="501">Belize (+501)</option>
+                                                        <option data-countryCode="BJ" value="229">Benin (+229)</option>
+                                                        <option data-countryCode="BM" value="1441">Bermuda (+1441)</option>
+                                                        <option data-countryCode="BT" value="975">Bhutan (+975)</option>
+                                                        <option data-countryCode="BO" value="591">Bolivia (+591)</option>
+                                                        <option data-countryCode="BA" value="387">Bosnia Herzegovina (+387)</option>
+                                                        <option data-countryCode="BW" value="267">Botswana (+267)</option>
+                                                        <option data-countryCode="BR" value="55">Brazil (+55)</option>
+                                                        <option data-countryCode="BN" value="673">Brunei (+673)</option>
+                                                        <option data-countryCode="BG" value="359">Bulgaria (+359)</option>
+                                                        <option data-countryCode="BF" value="226">Burkina Faso (+226)</option>
+                                                        <option data-countryCode="BI" value="257">Burundi (+257)</option>
+                                                        <option data-countryCode="KH" value="855">Cambodia (+855)</option>
+                                                        <option data-countryCode="CM" value="237">Cameroon (+237)</option>
+                                                        <option data-countryCode="CA" value="1">Canada (+1)</option>
+                                                        <option data-countryCode="CV" value="238">Cape Verde Islands (+238)</option>
+                                                        <option data-countryCode="KY" value="1345">Cayman Islands (+1345)</option>
+                                                        <option data-countryCode="CF" value="236">Central African Republic (+236)</option>
+                                                        <option data-countryCode="CL" value="56">Chile (+56)</option>
+                                                        <option data-countryCode="CN" value="86">China (+86)</option>
+                                                        <option data-countryCode="CO" value="57">Colombia (+57)</option>
+                                                        <option data-countryCode="KM" value="269">Comoros (+269)</option>
+                                                        <option data-countryCode="CG" value="242">Congo (+242)</option>
+                                                        <option data-countryCode="CK" value="682">Cook Islands (+682)</option>
+                                                        <option data-countryCode="CR" value="506">Costa Rica (+506)</option>
+                                                        <option data-countryCode="HR" value="385">Croatia (+385)</option>
+                                                        <option data-countryCode="CU" value="53">Cuba (+53)</option>
+                                                        <option data-countryCode="CY" value="90392">Cyprus North (+90392)</option>
+                                                        <option data-countryCode="CY" value="357">Cyprus South (+357)</option>
+                                                        <option data-countryCode="CZ" value="42">Czech Republic (+42)</option>
+                                                        <option data-countryCode="DK" value="45">Denmark (+45)</option>
+                                                        <option data-countryCode="DJ" value="253">Djibouti (+253)</option>
+                                                        <option data-countryCode="DM" value="1809">Dominica (+1809)</option>
+                                                        <option data-countryCode="DO" value="1809">Dominican Republic (+1809)</option>
+                                                        <option data-countryCode="EC" value="593">Ecuador (+593)</option>
+                                                        <option data-countryCode="EG" value="20">Egypt (+20)</option>
+                                                        <option data-countryCode="SV" value="503">El Salvador (+503)</option>
+                                                        <option data-countryCode="GQ" value="240">Equatorial Guinea (+240)</option>
+                                                        <option data-countryCode="ER" value="291">Eritrea (+291)</option>
+                                                        <option data-countryCode="EE" value="372">Estonia (+372)</option>
+                                                        <option data-countryCode="ET" value="251">Ethiopia (+251)</option>
+                                                        <option data-countryCode="FK" value="500">Falkland Islands (+500)</option>
+                                                        <option data-countryCode="FO" value="298">Faroe Islands (+298)</option>
+                                                        <option data-countryCode="FJ" value="679">Fiji (+679)</option>
+                                                        <option data-countryCode="FI" value="358">Finland (+358)</option>
+                                                        <option data-countryCode="FR" value="33">France (+33)</option>
+                                                        <option data-countryCode="GF" value="594">French Guiana (+594)</option>
+                                                        <option data-countryCode="PF" value="689">French Polynesia (+689)</option>
+                                                        <option data-countryCode="GA" value="241">Gabon (+241)</option>
+                                                        <option data-countryCode="GM" value="220">Gambia (+220)</option>
+                                                        <option data-countryCode="GE" value="7880">Georgia (+7880)</option>
+                                                        <option data-countryCode="DE" value="49">Germany (+49)</option>
+                                                        <option data-countryCode="GH" value="233">Ghana (+233)</option>
+                                                        <option data-countryCode="GI" value="350">Gibraltar (+350)</option>
+                                                        <option data-countryCode="GR" value="30">Greece (+30)</option>
+                                                        <option data-countryCode="GL" value="299">Greenland (+299)</option>
+                                                        <option data-countryCode="GD" value="1473">Grenada (+1473)</option>
+                                                        <option data-countryCode="GP" value="590">Guadeloupe (+590)</option>
+                                                        <option data-countryCode="GU" value="671">Guam (+671)</option>
+                                                        <option data-countryCode="GT" value="502">Guatemala (+502)</option>
+                                                        <option data-countryCode="GN" value="224">Guinea (+224)</option>
+                                                        <option data-countryCode="GW" value="245">Guinea - Bissau (+245)</option>
+                                                        <option data-countryCode="GY" value="592">Guyana (+592)</option>
+                                                        <option data-countryCode="HT" value="509">Haiti (+509)</option>
+                                                        <option data-countryCode="HN" value="504">Honduras (+504)</option>
+                                                        <option data-countryCode="HK" value="852">Hong Kong (+852)</option>
+                                                        <option data-countryCode="HU" value="36">Hungary (+36)</option>
+                                                        <option data-countryCode="IS" value="354">Iceland (+354)</option>
+                                                        <option data-countryCode="IN" value="91">India (+91)</option>
+                                                        <option data-countryCode="ID" value="62">Indonesia (+62)</option>
+                                                        <option data-countryCode="IR" value="98">Iran (+98)</option>
+                                                        <option data-countryCode="IQ" value="964">Iraq (+964)</option>
+                                                        <option data-countryCode="IE" value="353">Ireland (+353)</option>
+                                                        <option data-countryCode="IL" value="972">Israel (+972)</option>
+                                                        <option data-countryCode="IT" value="39">Italy (+39)</option>
+                                                        <option data-countryCode="JM" value="1876">Jamaica (+1876)</option>
+                                                        <option data-countryCode="JP" value="81">Japan (+81)</option>
+                                                        <option data-countryCode="JO" value="962">Jordan (+962)</option>
+                                                        <option data-countryCode="KZ" value="7">Kazakhstan (+7)</option>
+                                                        <option data-countryCode="KE" value="254">Kenya (+254)</option>
+                                                        <option data-countryCode="KI" value="686">Kiribati (+686)</option>
+                                                        <option data-countryCode="KP" value="850">Korea North (+850)</option>
+                                                        <option data-countryCode="KR" value="82">Korea South (+82)</option>
+                                                        <option data-countryCode="KW" value="965">Kuwait (+965)</option>
+                                                        <option data-countryCode="KG" value="996">Kyrgyzstan (+996)</option>
+                                                        <option data-countryCode="LA" value="856">Laos (+856)</option>
+                                                        <option data-countryCode="LV" value="371">Latvia (+371)</option>
+                                                        <option data-countryCode="LB" value="961">Lebanon (+961)</option>
+                                                        <option data-countryCode="LS" value="266">Lesotho (+266)</option>
+                                                        <option data-countryCode="LR" value="231">Liberia (+231)</option>
+                                                        <option data-countryCode="LY" value="218">Libya (+218)</option>
+                                                        <option data-countryCode="LI" value="417">Liechtenstein (+417)</option>
+                                                        <option data-countryCode="LT" value="370">Lithuania (+370)</option>
+                                                        <option data-countryCode="LU" value="352">Luxembourg (+352)</option>
+                                                        <option data-countryCode="MO" value="853">Macao (+853)</option>
+                                                        <option data-countryCode="MK" value="389">Macedonia (+389)</option>
+                                                        <option data-countryCode="MG" value="261">Madagascar (+261)</option>
+                                                        <option data-countryCode="MW" value="265">Malawi (+265)</option>
+                                                        <option data-countryCode="MY" value="60">Malaysia (+60)</option>
+                                                        <option data-countryCode="MV" value="960">Maldives (+960)</option>
+                                                        <option data-countryCode="ML" value="223">Mali (+223)</option>
+                                                        <option data-countryCode="MT" value="356">Malta (+356)</option>
+                                                        <option data-countryCode="MH" value="692">Marshall Islands (+692)</option>
+                                                        <option data-countryCode="MQ" value="596">Martinique (+596)</option>
+                                                        <option data-countryCode="MR" value="222">Mauritania (+222)</option>
+                                                        <option data-countryCode="YT" value="269">Mayotte (+269)</option>
+                                                        <option data-countryCode="MX" value="52">Mexico (+52)</option>
+                                                        <option data-countryCode="FM" value="691">Micronesia (+691)</option>
+                                                        <option data-countryCode="MD" value="373">Moldova (+373)</option>
+                                                        <option data-countryCode="MC" value="377">Monaco (+377)</option>
+                                                        <option data-countryCode="MN" value="976">Mongolia (+976)</option>
+                                                        <option data-countryCode="MS" value="1664">Montserrat (+1664)</option>
+                                                        <option data-countryCode="MA" value="212">Morocco (+212)</option>
+                                                        <option data-countryCode="MZ" value="258">Mozambique (+258)</option>
+                                                        <option data-countryCode="MN" value="95">Myanmar (+95)</option>
+                                                        <option data-countryCode="NA" value="264">Namibia (+264)</option>
+                                                        <option data-countryCode="NR" value="674">Nauru (+674)</option>
+                                                        <option data-countryCode="NP" value="977">Nepal (+977)</option>
+                                                        <option data-countryCode="NL" value="31">Netherlands (+31)</option>
+                                                        <option data-countryCode="NC" value="687">New Caledonia (+687)</option>
+                                                        <option data-countryCode="NZ" value="64">New Zealand (+64)</option>
+                                                        <option data-countryCode="NI" value="505">Nicaragua (+505)</option>
+                                                        <option data-countryCode="NE" value="227">Niger (+227)</option>
+                                                        <option data-countryCode="NG" value="234">Nigeria (+234)</option>
+                                                        <option data-countryCode="NU" value="683">Niue (+683)</option>
+                                                        <option data-countryCode="NF" value="672">Norfolk Islands (+672)</option>
+                                                        <option data-countryCode="NP" value="670">Northern Marianas (+670)</option>
+                                                        <option data-countryCode="NO" value="47">Norway (+47)</option>
+                                                        <option data-countryCode="OM" value="968">Oman (+968)</option>
+                                                        <option data-countryCode="PW" value="680">Palau (+680)</option>
+                                                        <option data-countryCode="PA" value="507">Panama (+507)</option>
+                                                        <option data-countryCode="PG" value="675">Papua New Guinea (+675)</option>
+                                                        <option data-countryCode="PY" value="595">Paraguay (+595)</option>
+                                                        <option data-countryCode="PE" value="51">Peru (+51)</option>
+                                                        <option data-countryCode="PH" value="63">Philippines (+63)</option>
+                                                        <option data-countryCode="PL" value="48">Poland (+48)</option>
+                                                        <option data-countryCode="PT" value="351">Portugal (+351)</option>
+                                                        <option data-countryCode="PR" value="1787">Puerto Rico (+1787)</option>
+                                                        <option data-countryCode="QA" value="974">Qatar (+974)</option>
+                                                        <option data-countryCode="RE" value="262">Reunion (+262)</option>
+                                                        <option data-countryCode="RO" value="40">Romania (+40)</option>
+                                                        <option data-countryCode="RU" value="7">Russia (+7)</option>
+                                                        <option data-countryCode="RW" value="250">Rwanda (+250)</option>
+                                                        <option data-countryCode="SM" value="378">San Marino (+378)</option>
+                                                        <option data-countryCode="ST" value="239">Sao Tome &amp; Principe (+239)</option>
+                                                        <option data-countryCode="SA" value="966" selected="selected">Saudi Arabia (+966)</option>
+                                                        <option data-countryCode="SN" value="221">Senegal (+221)</option>
+                                                        <option data-countryCode="CS" value="381">Serbia (+381)</option>
+                                                        <option data-countryCode="SC" value="248">Seychelles (+248)</option>
+                                                        <option data-countryCode="SL" value="232">Sierra Leone (+232)</option>
+                                                        <option data-countryCode="SG" value="65">Singapore (+65)</option>
+                                                        <option data-countryCode="SK" value="421">Slovak Republic (+421)</option>
+                                                        <option data-countryCode="SI" value="386">Slovenia (+386)</option>
+                                                        <option data-countryCode="SB" value="677">Solomon Islands (+677)</option>
+                                                        <option data-countryCode="SO" value="252">Somalia (+252)</option>
+                                                        <option data-countryCode="ZA" value="27">South Africa (+27)</option>
+                                                        <option data-countryCode="ES" value="34">Spain (+34)</option>
+                                                        <option data-countryCode="LK" value="94">Sri Lanka (+94)</option>
+                                                        <option data-countryCode="SH" value="290">St. Helena (+290)</option>
+                                                        <option data-countryCode="KN" value="1869">St. Kitts (+1869)</option>
+                                                        <option data-countryCode="SC" value="1758">St. Lucia (+1758)</option>
+                                                        <option data-countryCode="SD" value="249">Sudan (+249)</option>
+                                                        <option data-countryCode="SR" value="597">Suriname (+597)</option>
+                                                        <option data-countryCode="SZ" value="268">Swaziland (+268)</option>
+                                                        <option data-countryCode="SE" value="46">Sweden (+46)</option>
+                                                        <option data-countryCode="CH" value="41">Switzerland (+41)</option>
+                                                        <option data-countryCode="SI" value="963">Syria (+963)</option>
+                                                        <option data-countryCode="TW" value="886">Taiwan (+886)</option>
+                                                        <option data-countryCode="TJ" value="7">Tajikstan (+7)</option>
+                                                        <option data-countryCode="TH" value="66">Thailand (+66)</option>
+                                                        <option data-countryCode="TG" value="228">Togo (+228)</option>
+                                                        <option data-countryCode="TO" value="676">Tonga (+676)</option>
+                                                        <option data-countryCode="TT" value="1868">Trinidad &amp; Tobago (+1868)</option>
+                                                        <option data-countryCode="TN" value="216">Tunisia (+216)</option>
+                                                        <option data-countryCode="TR" value="90">Turkey (+90)</option>
+                                                        <option data-countryCode="TM" value="7">Turkmenistan (+7)</option>
+                                                        <option data-countryCode="TM" value="993">Turkmenistan (+993)</option>
+                                                        <option data-countryCode="TC" value="1649">Turks &amp; Caicos Islands (+1649)</option>
+                                                        <option data-countryCode="TV" value="688">Tuvalu (+688)</option>
+                                                        <option data-countryCode="UG" value="256">Uganda (+256)</option>
+                                                        <!-- <option data-countryCode="GB" value="44">UK (+44)</option> -->
+                                                        <option data-countryCode="UA" value="380">Ukraine (+380)</option>
+                                                        <option data-countryCode="AE" value="971">United Arab Emirates (+971)</option>
+                                                        <option data-countryCode="UY" value="598">Uruguay (+598)</option>
+                                                        <!-- <option data-countryCode="US" value="1">USA (+1)</option> -->
+                                                        <option data-countryCode="UZ" value="7">Uzbekistan (+7)</option>
+                                                        <option data-countryCode="VU" value="678">Vanuatu (+678)</option>
+                                                        <option data-countryCode="VA" value="379">Vatican City (+379)</option>
+                                                        <option data-countryCode="VE" value="58">Venezuela (+58)</option>
+                                                        <option data-countryCode="VN" value="84">Vietnam (+84)</option>
+                                                        <option data-countryCode="VG" value="84">Virgin Islands - British (+1284)</option>
+                                                        <option data-countryCode="VI" value="84">Virgin Islands - US (+1340)</option>
+                                                        <option data-countryCode="WF" value="681">Wallis &amp; Futuna (+681)</option>
+                                                        <option data-countryCode="YE" value="969">Yemen (North)(+969)</option>
+                                                        <option data-countryCode="YE" value="967">Yemen (South)(+967)</option>
+                                                        <option data-countryCode="ZM" value="260">Zambia (+260)</option>
+                                                        <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
+                                                    </optgroup>
+                                                </select>       
+                                                <input type="text" name="dbem_phone" id="dbem_phone" class="input" style="width:150px;" value="" /><span id="ers" style="color:red;font-size:12px;margin-left:270px;display:none"></span>
+                                                </p>    
+
+                                                <p id="p_user_address">
+                                                <label for='euser_address'>Address</label>
+                                                <input type="text" name="euser_address" class="input" id="euser_address" value="" class="regular-text" /><br />
+                                                </p>
+
+                                                <p id="p_user_company">
+                                                <label for='euser_company'>Company</label> 
+                                                <input type="text" name="euser_company" id="euser_company" class="input" value=""  />
+                                                </p>        
+                                                </div>
+                                                <div class="span7 pull-right">
+                                                <p id="p_user_nationality">
+                                                <label for='euser_nationality'>Nationality</label>
+                                                <select name="euser_nationality" style="width:260px;">
+                                                <option value="Afghanistan  أفغانستان">Afghanistan  أفغانستان</option>
+                                                <option value="Albania  ألبانيا">Albania    ألبانيا</option>
+                                                <option value="Algeria  الجزائر">Algeria    الجزائر</option>
+                                                <option value="American Samoa   ساموا-الأمريكي">American Samoa  ساموا-الأمريكي</option>
+                                                <option value="Andorra  أندورا">Andorra أندورا</option>
+                                                <option value="Angola   أنغولا">Angola  أنغولا</option>
+                                                <option value="Anguilla أنغويلا">Anguilla   أنغويلا</option>
+                                                <option value="Antarctica   أنتاركتيكا">Antarctica  أنتاركتيكا</option>
+                                                <option value="Antigua and Barbuda  أنتيغوا وبربودا">Antigua and Barbuda    أنتيغوا وبربودا</option>
+                                                <option value="Argentina    الأرجنتي">Argentina الأرجنتين</option>
+                                                <option value="Armenia  أرمينيا">Armenia    أرمينيا</option>
+                                                <option value="Aruba    أروبه">Aruba    أروبه</option>
+                                                <option value="Australia    أستراليا">Australia أستراليا</option>
+                                                <option value="Austria  النمسا">Austria النمسا</option>
+                                                <option value="Azerbaijan   أذربيجان">Azerbaijan    أذربيجان</option>
+                                                <option value="Bahamas  الباهاماس">Bahamas  الباهاماس</option>
+                                                <option value="Bahrain  البحرين">Bahrain    البحرين</option>
+                                                <option value="Bangladesh   بنغلاديش">Bangladesh    بنغلاديش</option>
+                                                <option value="Barbados بربادوس">Barbados   بربادوس</option>
+                                                <option value="Belarus  روسيا البيضاء">Belarus  روسيا البيضاء</option>
+                                                <option value="Belgium  بلجيكا">Belgium بلجيكا</option>
+                                                <option value="Belize   بيليز">Belize   بيليز</option>
+                                                <option value="Benin    بنين">Benin بنين</option>
+                                                <option value="Bermuda  جزر برمودا">Bermuda جزر برمودا</option>
+                                                <option value="Bhutan   بوتان">Bhutan   بوتان</option>
+                                                <option value="Bolivia  بوليفيا">Bolivia    بوليفيا</option>
+                                                <option value="Bosnia and Herzegovina   البوسنة و الهرسك">Bosnia and Herzegovina    البوسنة و الهرسك</option>
+                                                <option value="Botswana بوتسوانا">Botswana  بوتسوانا</option>
+                                                <option value="Brazil   البرازيل">Brazil    البرازيل</option>
+                                                <option value="Brunei Darussalam    بروني">Brunei Darussalam    بروني</option>
+                                                <option value="Bulgaria بلغاريا">Bulgaria   بلغاريا</option>
+                                                <option value="Burkina Faso بوركينا فاسو">Burkina Faso  بوركينا فاسو</option>
+                                                <option value="Burundi  بوروندي">Burundi    بوروندي</option>
+                                                <option value="Cambodia كمبوديا">Cambodia   كمبوديا</option>
+                                                <option value="Cameroon كاميرون">Cameroon   كاميرون</option>
+                                                <option value="Canada   كندا">Canada    كندا</option>
+                                                <option value="Cape Verde   الرأس الأخضر">Cape Verde    الرأس الأخضر</option>
+                                                <option value="Cayman Islands">Cayman Islands   </option>
+                                                <option value="Chad تشاد">Chad  تشاد</option>
+                                                <option value="Chile    شيلي">Chile شيلي</option>
+                                                <option value="China    جمهورية الصين الشعبية">China    جمهورية الصين الشعبية</option>
+                                                <option value="Colombia كولومبيا">Colombia  كولومبيا</option>
+                                                <option value="Comoros  جزر القمر">Comoros  جزر القمر</option>
+                                                <option value="Cook Islands جزر كوك">Cook Islands   جزر كوك</option>
+                                                <option value="Costa Rica   كوستاريكا">Costa Rica   كوستاريكا</option>
+                                                <option value="Cote d'Ivoire    ساحل العاج">Cote d'Ivoire   ساحل العاج</option>
+                                                <option value="Croatia  كرواتيا">Croatia    كرواتيا</option>
+                                                <option value="Cuba كوبا">Cuba  كوبا</option>
+                                                <option value="Cyprus   قبرص">Cyprus    قبرص</option>
+                                                <option value="Czech Republic   الجمهورية التشيكية">Czech Republic  الجمهورية التشيكية</option>
+                                                <option value="Denmark  الدانمارك">Denmark  الدانمارك</option>
+                                                <option value="Djibouti جيبوتي">Djibouti    جيبوتي</option>
+                                                <option value="Dominica دومينيكا">Dominica  دومينيكا</option>
+                                                <option value="Ecuador  إكوادور">Ecuador    إكوادور</option>
+                                                <option value="Egypt    مصر">Egypt  مصر</option>
+                                                <option value="El Salvador  إلسلفادور">El Salvador  إلسلفادور</option>
+                                                <option value="Equatorial Guinea    غينيا الاستوائي">Equatorial Guinea  غينيا الاستوائي</option>
+                                                <option value="Eritrea  إريتريا">Eritrea    إريتريا</option>
+                                                <option value="Estonia  استونيا">Estonia    استونيا</option>
+                                                <option value="Ethiopia أثيوبيا">Ethiopia   أثيوبيا</option>
+                                                <option value="Falkland Islands">Falkland Islands</option>  
+                                                <option value="Faroe Islands    جزر فارو">Faroe Islands جزر فارو</option>
+                                                <option value="Fiji فيجي">Fiji  فيجي</option>
+                                                <option value="Finland  فنلند">Finland  فنلندا</option>
+                                                <option value="France   فرنسا">France   فرنسا</option>
+                                                <option value="Gabon    الغابون">Gabon  الغابون</option>
+                                                <option value="Gambia   غامبيا">Gambia  غامبيا</option>
+                                                <option value="Georgia  جيورجيا">Georgia    جيورجيا</option>
+                                                <option value="Germany  ألمانيا">Germany    ألمانيا</option>
+                                                <option value="Ghana    غانا">Ghana غانا</option>
+                                                <option value="Gibraltar    جبل طارق">Gibraltar جبل طارق</option>
+                                                <option value="Greece   اليونان">Greece اليونان</option>
+                                                <option value="Greenland    جرينلاند">Greenland جرينلاند</option>
+                                                <option value="Grenada  غرينادا">Grenada    غرينادا</option>
+                                                <option value="Guadeloupe   جزر جوادلوب">Guadeloupe جزر جوادلوب</option>
+                                                <option value="Guam جوام">Guam  جوام</option>
+                                                <option value="Guatemala    غواتيمال">Guatemala غواتيمال</option>
+                                                <option value="Guinea   غينيا">Guinea   غينيا</option>
+                                                <option value="Guinea-Bissau    غينيا-بيساو">Guinea-Bissau  غينيا-بيساو</option>
+                                                <option value="Guyana   غيانا">Guyana   غيانا</option>
+                                                <option value="Haiti    هايتي">Haiti    هايتي</option>
+                                                <option value="Honduras هندوراس">Honduras   هندوراس</option>
+                                                <option value="Hong Kong    هونغ كونغ">Hong Kong    هونغ كونغ</option>
+                                                <option value="Hungary  المجر">Hungary  المجر</option>
+                                                <option value="Iceland  آيسلندا">Iceland    آيسلندا</option>
+                                                <option value="India    الهند">India    الهند</option>
+                                                <option value="Indonesia    أندونيسيا">Indonesia    أندونيسيا</option>
+                                                <option value="Iran إيران">Iran إيران</option>
+                                                <option value="Iraq العراق">Iraq    العراق</option>
+                                                <option value="Ireland  إيرلندا">Ireland    إيرلندا</option>
+                                                <option value="Italy    إيطاليا">Italy  إيطاليا</option>
+                                                <option value="Jamaica  جمايكا">Jamaica جمايكا</option>
+                                                <option value="Japan    اليابان">Japan  اليابان</option>
+                                                <option value="Jordan   الأردن">Jordan  الأردن</option>
+                                                <option value="Kazakhstan   كازاخستان">Kazakhstan   كازاخستان</option>
+                                                <option value="Kenya    كينيا">Kenya    كينيا</option>
+                                                <option value="Kiribati كيريباتي">Kiribati  كيريباتي</option>
+                                                <option value="Korea, (North Korea) كوريا الشمالية">Korea, (North Korea)كوريا الشمالية</option>
+                                                <option value="Korea, (South Korea) كوريا الجنوبية">Korea, (South Korea)كوريا الجنوبية</option>
+                                                <option value="Kuwait   الكويت">Kuwait  الكويت</option>
+                                                <option value="Kyrgyzstan   قيرغيزستان">Kyrgyzstan  قيرغيزستان</option>
+                                                <option value="Lao, PDR لاوس">Lao, PDR  لاوس</option>
+                                                <option value="Latvia   لاتفيا">Latvia  لاتفيا</option>
+                                                <option value="Lebanon  لبنان">Lebanon  لبنان</option>
+                                                <option value="Lesotho  ليسوتو">Lesotho ليسوتو</option>
+                                                <option value="Liberia  ليبيريا">Liberia    ليبيريا</option>
+                                                <option value="Libya    ليبيا">Libya    ليبيا</option>
+                                                <option value="Liechtenstein    ليختنشتين">Liechtenstein    ليختنشتين</option>
+                                                <option value="Lithuania    لتوانيا">Lithuania  لتوانيا</option>
+                                                <option value="Luxembourg   لوكسمبورغ">Luxembourg   لوكسمبورغ</option>
+                                                <option value="Macao    ماكاو">Macao    ماكاو</option>
+                                                <option value="Macedonia, Rep. of   مقدونيا">Macedonia, Rep. of مقدونيا</option>
+                                                <option value="Madagascar   مدغشقر">Madagascar  مدغشقر</option>
+                                                <option value="Malawi   مالاوي">Malawi  مالاوي</option>
+                                                <option value="Malaysia ماليزيا">Malaysia   ماليزيا</option>
+                                                <option value="Maldives المالديف">Maldives  المالديف</option>
+                                                <option value="Mali مالي">Mali  مالي</option>
+                                                <option value="Malta    مالطا">Malta    مالطا</option>
+                                                <option value="Marshall Islands جزر مارشال">Marshall Islands    جزر مارشال</option>
+                                                <option value="Martinique   مارتينيك">Martinique    مارتينيك</option>
+                                                <option value="Mauritania   موريتانيا">Mauritania   موريتانيا</option>
+                                                <option value="Mauritius    موريشيوس">Mauritius موريشيوس</option>
+                                                <option value="Mexico   المكسيك">Mexico المكسيك</option>
+                                                <option value="Micronesia   مايكرونيزيا">Micronesia مايكرونيزيا</option>
+                                                <option value="Moldova  مولدافيا">Moldova   مولدافيا</option>
+                                                <option value="Monaco   موناكو">Monaco  موناكو</option>
+                                                <option value="Mongolia منغوليا">Mongolia   منغوليا</option>
+                                                <option value="Montenegro   الجبل الأسو">Montenegro الجبل الأسو</option>
+                                                <option value="Montserrat   مونتسيرات">Montserrat   مونتسيرات</option>
+                                                <option value="Morocco  المغرب">Morocco المغرب</option>
+                                                <option value="Mozambique   موزمبيق">Mozambique موزمبيق</option>
+                                                <option value="Myanmar, Burma   ميانمار">Myanmar, Burma ميانمار</option>
+                                                <option value="Namibia  ناميبيا">Namibia    ناميبيا</option>
+                                                <option value="Nauru    نورو">Nauru نورو</option>
+                                                <option value="Nepal    نيبال">Nepal    نيبال</option>
+                                                <option value="Netherlands  هولندا">Netherlands هولندا</option>
+                                                <option value="New Zealand  نيوزيلندا">New Zealand  نيوزيلندا</option>
+                                                <option value="Nicaragua    نيكاراجوا">Nicaragua    نيكاراجوا</option>
+                                                <option value="Niger    النيجر">Niger   النيجر</option>
+                                                <option value="Niue ني">Nigeria نيجيريا</option>
+                                                <option value="">Niue   ني</option>
+                                                <option value="Norway   النرويج">Norway النرويج</option>
+                                                <option value="Oman عُمان">Oman عُمان</option>
+                                                <option value="Pakistan باكستان">Pakistan   باكستان</option>
+                                                <option value="Palau    بالاو">Palau    بالاو</option>
+                                                <option value="Palestine    فلسطين">Palestine   فلسطين</option>
+                                                <option value="Panama   بنما">Panama    بنما</option>
+                                                <option value="Paraguay باراغواي">Paraguay  باراغواي</option>
+                                                <option value="Peru بيرو">Peru  بيرو</option>
+                                                <option value="Philippines  الفليبين">Philippines   الفليبين</option>
+                                                <option value="Poland   بولونيا">Poland بولونيا</option>
+                                                <option value="Portugal البرتغال">Portugal  البرتغال</option>
+                                                <option value="Puerto Rico  بورتو ريكو">Puerto Rico بورتو ريكو</option>
+                                                <option value="Qatar    قطر">Qatar  قطر</option>
+                                                <option value="Reunion Island   ريونيون">Reunion Island ريونيون</option>
+                                                <option value="Romania  رومانيا">Romania    رومانيا</option>
+                                                <option value="Russia   روسيا">Russia   روسيا</option>
+                                                <option value="Rwanda   رواندا">Rwanda  رواندا</option>
+                                                <option value="Saint Lucia  سانت لوسيا">Saint Lucia سانت لوسيا</option>
+                                                <option value="Grenadines">Grenadines   </option>
+                                                <option value="Samoa    المناطق">Samoa  المناطق</option>
+                                                <option value="San Marino   سان مارينو">San Marino  سان مارينو</option>
+                                                <option value="Saudi Arabia   السعودية" selected="selected">Saudi Arabia السعودية</option>
+                                                <option value="Senegal  السنغال">Senegal    السنغال</option>
+                                                <option value="Serbia   جمهورية صربيا">Serbia   جمهورية صربيا</option>
+                                                <option value="Seychelles   سيشيل">Seychelles   سيشيل</option>
+                                                <option value="Sierra Leone سيراليون">Sierra Leone  سيراليون</option>
+                                                <option value="Singapore    سنغافورة">Singapore سنغافورة</option>
+                                                <option value="Slovakia سلوفاكيا">Slovakia  سلوفاكيا</option>
+                                                <option value="Slovenia سلوفينيا">Slovenia  سلوفينيا</option>
+                                                <option value="Solomon Islands  جزر سليمان">Solomon Islands جزر سليمان</option>
+                                                <option value="Somalia  الصومال">Somalia    الصومال</option>
+                                                <option value="South Africa جنوب أفريقيا">South Africa  جنوب أفريقيا</option>
+                                                <option value="Spain    إسبانيا">Spain  إسبانيا</option>
+                                                <option value="Sri Lanka    سريلانكا">Sri Lanka سريلانكا</option>
+                                                <option value="Sudan    السودان">Sudan  السودان</option>
+                                                <option value="Suriname سورينام">Suriname   سورينام</option>
+                                                <option value="Swaziland    سوازيلند">Swaziland سوازيلند</option>
+                                                <option value="Sweden   السويد">Sweden  السويد</option>
+                                                <option value="Syria    سوريا">Switzerland  سويسرا</option>
+                                                <option value="">Syria  سوريا</option>
+                                                <option value="Taiwan   تايوان">Taiwan  تايوان</option>
+                                                <option value="Tajikistan   طاجيكستان">Tajikistan   طاجيكستان</option>
+                                                <option value="Tanzania تنزانيا">Tanzania   تنزانيا</option>
+                                                <option value="Thailand تايلندا">Thailand   تايلندا</option>
+                                                <option value="Tibet    تبت">Tibet  تبت</option>
+                                                <option value="Togo توغو">Togo  توغو</option>
+                                                <option value="Tokelau">Tokelau </option>
+                                                <option value="Tonga" تونغا""="">Tonga  تونغا</option>
+                                                <option value="Tunisia  تونس">Tunisia   تونس</option>
+                                                <option value="Turkey   تركيا">Turkey   تركيا</option>
+                                                <option value="Turkmenistan تركمانستان">Turkmenistan    تركمانستان</option>
+                                                <option value="Tuvalu   توفالو">Tuvalu  توفالو</option>
+                                                <option value="Uganda   أوغندا">Uganda  أوغندا</option>
+                                                <option value="Ukraine  أوكرانيا">Ukraine   أوكرانيا</option>
+                                                <option value="United Arab Emirates الإمارات العرب">United Arab Emirates الإمارات العربية</option>
+                                                <option value="United Kingdom   المملكة المتحدة">United Kingdom المملكة المتحدة</option>
+                                                <option value="United States    الولايات المتحدة">United States الولايات المتحدة</option>
+                                                <option value="Uruguay  أورغواي">Uruguay    أورغواي</option>
+                                                <option value="Uzbekistan   أوزباكستان">Uzbekistan  أوزباكستان</option>
+                                                <option value="Vanuatu  فانواتو">Vanuatu    فانواتو</option>
+                                                <option value="Vatican City State   الفاتيكان">Vatican City State   الفاتيكان</option>
+                                                <option value="Venezuela    فنزويلا">Venezuela  فنزويلا</option>
+                                                <option value="Vietnam  فيتنام">Vietnam فيتنام</option>
+                                                <option value="Wallis and   والس وفوتونا">Wallis and    والس وفوتونا</option>
+                                                <option value="Futuna Islands">Futuna Islands   </option>
+                                                <option value="Western Sahara   الصحراء الغربية">Western Sahara الصحراء الغربية</option>
+                                                <option value="Yemen    اليمن">Yemen    اليمن</option>
+                                                <option value="Zambia   زامبيا">Zambia  زامبيا</option>
+                                                <option value="Zimbabwe زمبابوي">Zimbabwe   زمبابوي</option>
+                                                </select>   
+                                                </p>
+                                                <p id="p_user_gender">
+                                                <label for='euser_gender'>Gender</label> 
+                                                <select name="euser_gender" style="width:260px;">
+                                                <option value="ذكر">ذكر - Male</option>
+                                                <option value="أنثى">أنثى - Female</option>
+                                                </select>   
+                                                </p>
+                                                <p id="p_user_job_title">
+                                                <label for='euser_job_title'>Job Title</label> 
+                                                <input type="text" name="euser_job_title" id="euser_job_title" class="input" value=""  />
+                                                </p>        
+                                                </div>
+
+                                                <div class="span7" id="login_form_book">  
+                                                    <p>
+                                                    <label for='euser_email'><span class="required">*</span>E-mail</label> 
+                                                    <input type="text" name="euser_email" id="euser_email" class="input" value=""  />
+                                                    </p>
+                                                </div>
+
+                                                            
+
+                                                <div class="span12 pull-left">
+                                                    <label for='booking_comment'>Comment</label>
+                                                    <textarea name='booking_comment' rows="5" cols="20"></textarea>
+                                                </div>                                                
+                                    
+                                    </div>
+                                </div>
+                        
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="box-footer">
+                        <input type="submit" value="Send Booking " class="em-booking-submit btn btn-primary" id="em-booking-submit" />
+
+                    </div>
+                     </form>
+                </div>
+                
+            </div>
+        </div>
+
+        
+    </section>
+
+    
+
+            </div>
+        </div>
+
+        <script>
+         window.$ = window.jQuery = require('../assets/scripts/jquery.js');
+        </script>
+        <script src='../assets/scripts/nprogress.js'></script>        
+        <script src="../assets/scripts/serialize.js"></script>  
+        <script src="../assets/scripts/scripts.js"></script>  
+        <script type="text/javascript">
+        var d = new Date();
+        $("._datetime").val(d.toLocaleString());
+        </script>
+    </body>
+</html>

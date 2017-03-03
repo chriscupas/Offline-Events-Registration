@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TVTC Conference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="layout" content="main"/>
+    
+    <script type="text/javascript" src="./assets/scripts/jsapi"></script>
+
+    <link href="./assets/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
+    <link href="./assets/css/jquery.flipster.css" type="text/css" media="screen, projection" rel="stylesheet" />
+    <link href='./assets/css/nprogress.css' rel='stylesheet' />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>     
+</head>
+    <body style="overflow:hidden;" ng-controller="mainController">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="javascript:void(0);" class="brand"><img src="./assets/img/TVTCLogo.png" width="30" />TVTC Conference System</i></a>
+                    <a href="javascript:void(0);" style="padding:0;" class="pull-right"><img src="./assets/img/Conf_Logo.png" width="60" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="body-nav body-nav-horizontal body-nav-fixed has out">
+            <div class="container">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="icon-dashboard icon-large"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./pages/register.html">
+                            <i class="icon-list-alt icon-large"></i> Registration
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./pages/attendance.html">
+                            <i class="icon-barcode icon-large"></i> In-Out
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./pages/lists.html">
+                            <i class="icon-calendar icon-large"></i> Lists
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./pages/settings.html">
+                            <i class="icon-cogs icon-large"></i> Settings
+                        </a>
+                    </li>                                                                                                 
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="body-container" class="has out">
+            <div id="body-content">                
+
+    <section class="page container">        
+        <div class="row">
+          <div class="span8">
+              <div class="box">
+                  <div class="box-content">
+                      <div id="piechart"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="span8">
+              <div class="box">
+                  <div class="box-header">
+                      <i class="icon-globe"></i>
+                      <h5>Events</h5>
+                  </div>
+                  <div class="box-content" id="events_lists" style="height:217px;overflow:auto;">
+                      
+                  </div>
+              </div>
+          </div>              
+        </div>
+
+        <div class="row">
+          <div id="carousel">
+              <ul class="flip-items">
+                  <li data-flip-title="Military" data-flip-category="TVTC">
+                      <img src="./assets/img/Military35.png">
+                  </li>
+                  <li data-flip-title="Girls Tech" data-flip-category="TVTC">
+                      <img src="./assets/img/girlsTech1.png">
+                   </li>
+                  <li data-flip-title="Afkar Banner" data-flip-category="TVTC">
+                      <img src="./assets/img/AfkarBanner.png">
+                  </li>
+                  <li data-flip-title="Maintenance" data-flip-category="TVTC">
+                      <img src="./assets/img/Preventive-maintenance-teams2.jpg">
+                  </li>
+                  <li data-flip-title="Supplier" data-flip-category="TVTC">
+                      <img src="./assets/img/Supplier.png">
+                  </li>                  
+              </ul>
+          </div> 
+
+        </div>
+        
+    </section>
+
+    
+
+            </div>
+        </div>
+
+
+        <script>
+          window.$ = window.jQuery = require('./assets/scripts/jquery.js');
+        </script>
+        <script src="./assets/scripts/jquery.flipster.min.js"></script>
+        <script src='./assets/scripts/nprogress.js'></script>
+        <script>
+            NProgress.start();
+            var carousel = $("#carousel").flipster({
+                style: 'carousel',
+                spacing: -0.5,
+                nav: true,
+                buttons:   true,
+                autoplay: 1000,
+                start: 'center',
+                loop: true,
+                pauseOnHover: true,
+                start: 'center',
+                fadeIn: 400
+            });
+            $('body').show();
+            
+            
+
+            jQuery(window).load(function () {
+                NProgress.done(); $('.has').removeClass('out');
+                NProgress.remove();
+            });            
+        </script>                  
+        <script type="text/javascript">
+              db = {};
+              var Datastore = require('nedb');
+              db.events = new Datastore({ filename: 'db/data.json', autoload: true });
+              db.scanbcode = new Datastore({ filename: 'db/attendance.json', autoload: true });
+              db.settings = new Datastore({ filename: 'conf/config.json', autoload: true });
+
+              db.events.loadDatabase(function (err) {
+                db.events.find({}, function (err, docs) {
+                      var appendobj = "";
+
+                      var events = [];
+                      $.each( docs, function( index, object ){
+                        events.push(object.event_id);
+                      });
+                      var hist = {};
+                      events.map( function (a) { if (a in hist) hist[a] ++; else hist[a] = 1; } );
+                      
+                      appendobj += '<table id="sample-table" class="table table-hover table-bordered">';
+                      $.each( hist, function( index, object ){
+                          appendobj += "<tr>";
+                          appendobj += "<td>" + (index ? + index : "")+ " </td>";
+                          appendobj += "<td><a href='" + (index ? + index : "")+ "'><i class='icon-search icon-small'></i>View in browser</a></td>";
+                          appendobj += "</tr>";
+                      });
+                      appendobj += "</table>";
+                      $("#events_lists").html(appendobj);
+
+                      $( "#sample-table tr td a" ).promise().done(function() {
+                          var wow = $(this);
+                          db.settings.find({}, function (err, docs) {
+                              if(docs.length > 0) {
+                                  var currlink = wow.attr("href");
+                                  wow.attr('href', docs[0].domain + "/?eventid=" + currlink + "&source=offline");
+                              }
+                          });
+                      });                      
+                });
+              });
+
+              google.load('visualization', '1', {'packages': ['corechart']});
+              google.setOnLoadCallback(return_count);              
+              var x = null, y = null;
+              db.events.count({}, function (err, count) { x = count; return_count();});
+
+              db.scanbcode.count({}, function (err, count) { y = count; return_count(); });
+
+              function return_count() {
+                visualization_data = new google.visualization.DataTable();
+                
+                visualization_data.addColumn('string', 'Task');
+                visualization_data.addColumn('number', 'Hours per Day');
+
+                visualization_data.addRow(['Registered', x]);
+                visualization_data.addRow(['Completed', y]);
+                
+
+                visualization = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                visualization.draw(visualization_data, {title: 'System\'s Activity', height: 260});
+              }
+
+              const shell = require('electron').shell;
+
+              $(document).on('click', 'table a', function(event) {
+                  event.preventDefault();
+
+                  if(this.href.match(/http:\/\//g)) {
+                      shell.openExternal(this.href);
+                  } else {
+                      alert('Domain is not provided. Please update domain under settings.');
+                      return false;
+                  }
+                  
+              }); 
+
+        </script>        
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TVTC Conference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="layout" content="main"/>
+
+    <link href="../assets/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
+    <link href='../assets/css/nprogress.css' rel='stylesheet' />
+
+    <style>
+    </style>
+</head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="javascript:void(0);" class="brand"><img src="../assets/img/TVTCLogo.png" width="30" />TVTC Conference System</i></a>
+                    <a href="javascript:void(0);" style="padding:0;" class="pull-right"><img src="../assets/img/Conf_Logo.png" width="60" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="body-nav body-nav-horizontal body-nav-fixed has out">
+            <div class="container">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <i class="icon-dashboard icon-large"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./register.html">
+                            <i class="icon-list-alt icon-large"></i> Registration
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:void(0);">
+                            <i class="icon-barcode icon-large"></i> In-Out
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./lists.html">
+                            <i class="icon-calendar icon-large"></i> Lists
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./settings.html">
+                            <i class="icon-cogs icon-large"></i> Settings
+                        </a>
+                    </li>                                                                                                
+                </ul>
+            </div>
+        </div>
+
+        <div id="body-container" class="has out">
+            <div id="body-content">
+                
+    <section class="page container">        
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li class="divider">
+                    <i class="icon-home"></i>
+                    <a href="../index.html">Home</a>
+                    <span class="divider"> /</span>
+                </li>
+                <li class="active">Attendance</li>
+            </ul><!-- /.breadcrumb -->
+        </div>
+        <div class="row">
+            <div class="span16">
+                <div class="box">
+                    <div class="box-header">
+                        <i class="icon-sign-blank"></i>
+                        <h5>Attendance</h5>
+                    </div>
+                    <div class="box-content">
+                        <form name='booking-form' id="scan_barcode" method='post' action='#em-booking'>
+                            <input type="text" name="att_barcode" id="att_barcode" class="input" value="" />
+                            <button style="top:-5px;position:relative;" type="submit" class="em-booking-submit btn" id="em-booking-submit">
+                                <i class="icon-barcode"></i>
+                                Scan
+                            </button>                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+
+    
+
+            </div>
+        </div>
+
+        <script>
+         window.$ = window.jQuery = require('../assets/scripts/jquery.js');
+        </script>
+        <script src='../assets/scripts/nprogress.js'></script>        
+        <script src="../assets/scripts/serialize.js"></script>  
+        <script src="../assets/scripts/scripts.js"></script>  
+        <script type="text/javascript">
+        $(function() {
+            $("#att_barcode").focus();
+        });
+        </script>
+	</body>
+</html>

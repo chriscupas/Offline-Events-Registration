@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TVTC Conference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="layout" content="main"/>
+
+    <link href="../assets/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
+    <link href='../assets/css/nprogress.css' rel='stylesheet' />
+
+    <style>
+    </style>
+</head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="javascript:void(0);" class="brand"><img src="../assets/img/TVTCLogo.png" width="30" />TVTC Conference System</i></a>
+                    <a href="javascript:void(0);" style="padding:0;" class="pull-right"><img src="../assets/img/Conf_Logo.png" width="60" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="body-nav body-nav-horizontal body-nav-fixed has out">
+            <div class="container">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <i class="icon-dashboard icon-large"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./register.html">
+                            <i class="icon-list-alt icon-large"></i> Registration
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./attendance.html">
+                            <i class="icon-barcode icon-large"></i> In-Out
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./lists.html">
+                            <i class="icon-calendar icon-large"></i> Lists
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:void(0);">
+                            <i class="icon-cogs icon-large"></i> Settings
+                        </a>
+                    </li>                                                                                                
+                </ul>
+            </div>
+        </div>
+
+        <div id="body-container" class="has out">
+            <div id="body-content">
+                
+    <section class="page container">        
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li class="divider">
+                    <i class="icon-home"></i>
+                    <a href="../index.html">Home</a>
+                    <span class="divider"> /</span>
+                </li>
+                <li class="active">Settings</li>
+            </ul><!-- /.breadcrumb -->
+        </div>
+        <form name='booking-form-api' id='booking-form-api' method='post' action='#em-booking'>
+            <div class="span5">
+                <label>Domain <input type="text" name="api_url" class="input" id="api_url" value="" class="regular-text" /> /</label>
+            </div>
+            <div class="span5">
+                <label>API Token <input type="text" name="api_token" class="input" id="api_token" value="" class="regular-text" /></label>                          
+            </div>
+            <div class="span3">
+                <button type="submit" class="btn">
+                    <i class="icon-save"></i> Save
+                </button>              
+            </div>
+        </form>
+        <div class="row">
+            <div class="span16">
+                <div class="box">
+                    <div class="box-header">
+                        <i class="icon-wrench"></i>
+                        <h5>Syn Databases</h5>
+                    </div>
+                    <div class="box-content box-table">
+
+                        <table id="sample-table" class="table table-hover table-bordered tablesorter">
+                            <thead>
+                                <tr>
+                                    <th width="">Event ID</th>
+                                    <th width="">Used (count)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="registered_lists">
+                            </tbody>
+                        </table>
+                        <table id="sample-table" class="table table-hover table-bordered tablesorter">
+                            <tr>
+                                <td width="49%">
+                                    <a class="btn btn-primary" id="sync_reg">
+                                        <i class="icon-upload"></i> Sync Registration DB
+                                    </a>
+                                    <a class="btn" id="remove_reg">
+                                        <i class="icon-trash"></i>
+                                    </a> 
+                                    <a class="btn fileDownloadCustomRichExperience">
+                                        <i class="icon-download-alt"></i>
+                                    </a>                      
+                                    <span class='sync_events'></span>
+                                    
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary" id="sync_attendance">
+                                        <i class="icon-upload"></i> Sync Attendance DB
+                                    </a>  
+                                    <a class="btn" id="remove_attendance">
+                                        <i class="icon-trash"></i>
+                                    </a>                                      
+                                    <a class="btn fileDownloadAttendance">
+                                        <i class="icon-download-alt"></i>
+                                    </a>                                     
+                                    <span class='sync_attendance'></span>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>                    
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+
+    
+
+            </div>
+        </div>
+
+        <div id="preparing-file-modal" title="Preparing report..." style="display: none;">            
+            <div id="container">We are preparing your report, please wait...</div>
+            <div class="ui-progressbar-value ui-corner-left ui-corner-right" style="width: 100%; height:22px; margin-top: 20px;"></div>
+        </div>
+
+        <div id="preparing-file-modal-attendance" title="Preparing report..." style="display: none;">            
+            <div id="container">We are preparing your report, please wait...</div>
+            <div class="ui-progressbar-value ui-corner-left ui-corner-right" style="width: 100%; height:22px; margin-top: 20px;"></div>
+        </div>        
+
+        <div id="preparing-file-events-sync" title="Preparing synchronization..." style="display: none;">            
+            <div id="container">We are synching events data to the given domain...</div>
+            <div class="ui-progressbar-value ui-corner-left ui-corner-right" style="width: 100%; height:22px; margin-top: 20px;"></div>
+        </div>
+
+        <div id="preparing-file-attendance-sync" title="Preparing synchronization..." style="display: none;">            
+            <div id="container">We are synching events data to the given domain...</div>
+            <div class="ui-progressbar-value ui-corner-left ui-corner-right" style="width: 100%; height:22px; margin-top: 20px;"></div>
+        </div>        
+         
+        <div id="error-modal" title="Error" style="display: none;">
+            There was a problem generating your report, please try again.
+        </div>
+
+        <script>
+         window.$ = window.jQuery = require('../assets/scripts/jquery.js');
+        </script>
+        <script src='../assets/scripts/nprogress.js'></script>        
+        <script src="../assets/scripts/jquery-ui.min.js"></script>        
+        <link href="../assets/css/jquery-ui.css" rel="stylesheet" type="text/css" />    
+
+        <script type="text/javascript">
+            db = {};
+            var Datastore = require('nedb');
+            db.events = new Datastore({ filename: 'db/data.json', autoload: true });
+            db.scanbcode = new Datastore({ filename: 'db/attendance.json', autoload: true });
+            db.settings = new Datastore({ filename: 'conf/config.json', autoload: true });        
+            db.sync_events = new Datastore({ filename: 'conf/sync_events.json', autoload: true });        
+            db.sync_attendance = new Datastore({ filename: 'conf/sync_attendance.json', autoload: true });        
+            var ajaxadmin = '/wp-admin/admin-ajax.php';
+            var appenddomain, wow;
+            var d = new Date();
+
+            db.events.loadDatabase(function (err) {
+              db.events.find({}, function (err, docs) {
+                    var appendobj = "";
+                    var events = [];
+                    $.each( docs, function( index, object ){
+                      events.push(object.event_id);
+                    });
+                    var hist = {};
+                    events.map( function (a) { if (a in hist) hist[a] ++; else hist[a] = 1; } );
+
+                    $.each( hist, function( index, object ){
+                        appendobj += "<tr>";
+                        appendobj += "<td><a href='" + (index ? + index : "")+ "' title='view in browser' id='viewbrowser'>" + (index ? + index : "")+ " <i class='icon-search icon-small'></i></a></td>";
+                        appendobj += "<td>" + (object ? + object : "")+ "</td>";
+                        appendobj += "</tr>";                        
+                    });
+
+                    $("#registered_lists").html(appendobj);
+
+                    $( "#registered_lists > tr > td > a" ).promise().done(function() {
+                        var wow = $(this);
+                        db.settings.find({}, function (err, docs) {
+                            if(docs.length > 0) {
+                                var currlink = wow.attr("href");
+                                wow.attr('href', docs[0].domain + "/?eventid=" + currlink + "&source=offline");
+                            }
+                        });
+                    });
+              });
+            });
+         
+            db.settings.find({}, function (err, docs) {
+                if(docs.length > 0) {
+                    $("#api_url").val(docs[0].domain);
+                    $("#api_token").val(docs[0].api_token);
+                }
+            });
+
+            $(function () {               
+                var x = null, y = null;
+
+                $(document).on("click", "a.fileDownloadCustomRichExperience", function () { 
+                    var $preparingFileModal = $("#preparing-file-modal");
+                    $("#preparing-file-modal #container").html("We are preparing your report, please wait...");
+                    
+                    $(".ui-dialog-title").html("Preparing report...");
+                    $preparingFileModal.dialog({ modal: true });  
+
+                    db.events.loadDatabase(function (err) {
+                        db.events.find({}, function (err, docs) {
+                            x = docs;
+                            var data = "application/octet-stream," + encodeURIComponent(JSON.stringify(x));
+                            $("#preparing-file-modal #container").html("");
+                            $(".ui-dialog-title").html("Done");
+                            $('<a href="data:' + data + '" onclick="javascript:$(\'#preparing-file-modal\').dialog(\'close\')" download="data.json">Download Events</a>').appendTo('#preparing-file-modal #container');                                             
+                        });
+                    });
+
+                    return false;
+                });
+
+                $(document).on("click", "a.fileDownloadAttendance", function () { 
+                    var $preparingFileModal = $("#preparing-file-modal-attendance");
+                    $("#preparing-file-modal-attendance #container").html("We are preparing your report, please wait...");
+                    
+                    $(".ui-dialog-title").html("Preparing report...");
+                    $preparingFileModal.dialog({ modal: true });  
+
+                    db.scanbcode.loadDatabase(function (err) {
+                        db.scanbcode.find({}, function (err, docs) {
+                            x = docs;
+                            var data = "application/octet-stream," + encodeURIComponent(JSON.stringify(x));
+                            $("#preparing-file-modal-attendance #container").html("");
+                            $(".ui-dialog-title").html("Done");
+                            $('<a href="data:' + data + '" onclick="javascript:$(\'#preparing-file-modal-attendance\').dialog(\'close\')" download="attendance.json">Download Attendance</a>').appendTo('#preparing-file-modal-attendance #container');
+                                                                          
+                        });
+                    });
+
+                    return false;
+                });                
+                
+                $(document).on("click", "#sync_reg", function() {
+                    var $preparingFileModal = $("#preparing-file-events-sync");
+                    
+                    $(".em-booking-message-error, .em-booking-message-success").remove();
+
+                    if($("a#viewbrowser").attr('href') && !$("a#viewbrowser").attr('href').match(/^http([s]?):\/\/.*/)) {
+                        alert('Domain is not provided. Please update domain under settings.');
+                        return false;
+                    }
+                    
+                    $preparingFileModal.dialog({ modal: true }); 
+                    db.events.find({}, function (err, docs) {
+
+                        if(docs.length > 0) {
+
+                            $.ajax({
+                                url: $("#api_url").val() + ajaxadmin,
+                                type: 'POST',
+                                data: {
+                                    'action':'sync_events',
+                                    'token': $("#api_token").val(),
+                                    'json' : JSON.stringify(docs),
+                                },
+                                dataType: 'json',
+                                async: true,
+                                success: function(msg) {
+                                    
+                                    $preparingFileModal.dialog('close');
+                                    if(msg.status == "success") {
+
+                                        db.sync_events.find({}, function (err, docs) {
+                                            var $sevnts = $(".sync_events");
+                                            if(docs.length < 1) {
+                                                db.sync_events.insert([{date: d.toLocaleString()}], function (err) {
+                                                    if(err) {
+                                                        $sevnts.html('<span class="badge badge-warning">Not Synced</span>');
+                                                    } else {
+                                                        $sevnts.html('<span class="badge badge-success">Synced</span> ' + d.toLocaleString());
+                                                    }                                                
+                                                });
+                                            } else {
+                                                db.sync_events.update({ _id: docs[0]._id }, {date: d.toLocaleString()}, {}, function (err, numReplaced) {
+                                                    if(err) {
+                                                        $sevnts.html('<span class="badge badge-warning">Not Synced</span>');
+                                                    } else {
+                                                        $sevnts.html('<span class="badge badge-success">Synced</span> ' + d.toLocaleString());
+                                                    } 
+                                                });
+                                            }
+                                        });
+
+
+                                        $('<div class="em-booking-message-success em-booking-message">Successfully synced.</div>').insertBefore($("#booking-form-api"));
+                                    } else if(msg.status == 'debug') {
+                                        $('<div class="em-booking-message-error em-booking-message">' + msg.message + '</div>').insertBefore($("#booking-form-api")); 
+                                    } else {
+                                        $('<div class="em-booking-message-error em-booking-message">' + msg.message + '</div>').insertBefore($("#booking-form-api"));    
+                                    }
+                                },
+                                error: function(err) {
+                                    $('<div class="em-booking-message-error em-booking-message">'+err.responseText+'</div>').insertBefore($("#booking-form-api"));   
+                                }
+                            });
+                        } else {
+                            $preparingFileModal.html('No data found.');
+                        }                  
+                    });                    
+                    return false;
+                });
+
+                db.sync_attendance.find({}, function (err, docs) {
+                    var $sattend = $(".sync_attendance");
+                    if(err || docs.length < 1) {
+                        $sattend.html('<span class="badge badge-warning">Not Synced</span>');
+                        return false;
+                    }
+
+                    $sattend.html('<span class="badge badge-success">Synced</span> ' + docs[0].date);
+                });
+
+                db.sync_events.find({}, function (err, docs) {
+                    var $sevnts = $(".sync_events");
+                    if(err || docs.length < 1) {
+                        $sevnts.html('<span class="badge badge-warning">Not Synced</span>');
+                        return false;
+                    } 
+
+                    $sevnts.html('<span class="badge badge-success">Synced</span> ' + docs[0].date);
+                });
+
+                $(document).on("click", "#sync_attendance", function() {
+                    var $preparingFileModal = $("#preparing-file-attendance-sync");
+                    
+                    $(".em-booking-message-error, .em-booking-message-success").remove();
+
+                    if($("a#viewbrowser").attr('href') && !$("a#viewbrowser").attr('href').match(/^http([s]?):\/\/.*/)) {
+                        alert('Domain is not provided. Please update domain under settings.');
+                        return false;
+                    }
+
+                    $preparingFileModal.dialog({ modal: true });
+                    db.scanbcode.find({}, function (err, docs) {
+                        if(docs.length > 0) {
+                            $.ajax({
+                                url: $("#api_url").val() + ajaxadmin,
+                                type: 'POST',
+                                data: {
+                                    'action':'sync_attendance',
+                                    'token': $("#api_token").val(),
+                                    'json' : JSON.stringify(docs),
+                                },
+                                dataType: 'json',
+                                async: true,
+                                success: function(msg) {
+                                    $preparingFileModal.dialog('close');  
+
+                                    if(msg.status == "success") {
+
+                                        db.sync_attendance.find({}, function (err, docs) {
+                                            var $sattend = $(".sync_attendance");
+                                            if(docs.length < 1) {
+                                                db.sync_attendance.insert([{date: d.toLocaleString()}], function (err) {
+                                                    if(err) {
+                                                        $sattend.html('<span class="badge badge-warning">Not Synced</span>');
+                                                    } else {
+                                                        $sattend.html('<span class="badge badge-success">Synced</span> ' + d.toLocaleString());
+                                                    }                                                 
+                                                });
+                                            } else {
+                                                db.sync_attendance.update({ _id: docs[0]._id }, {date: d.toLocaleString()}, {}, function (err, numReplaced) {
+                                                    if(err) {
+                                                        $sattend.html('<span class="badge badge-warning">Not Synced</span>');
+                                                    } else {
+                                                        $sattend.html('<span class="badge badge-success">Synced</span> ' + d.toLocaleString());
+                                                    }                                                 
+                                                });
+                                            }
+                                        });
+
+                                        $('<div class="em-booking-message-success em-booking-message">Successfully synced.</div>').insertBefore($("#booking-form-api"));
+                                    } else if(msg.status == 'debug') {
+                                        $('<div class="em-booking-message-error em-booking-message">' + msg.message + '</div>').insertBefore($("#booking-form-api")); 
+                                    } else {
+                                        $('<div class="em-booking-message-error em-booking-message">' + msg.message + '</div>').insertBefore($("#booking-form-api"));    
+                                    }
+                                },
+                                error: function(err) {
+                                    $('<div class="em-booking-message-error em-booking-message">'+err.responseText+'</div>').insertBefore($("#booking-form-api"));                            
+                                }
+                            });
+                        } else {
+                            $preparingFileModal.html('No data found.');
+                        }                      
+                    });                    
+                    return false;
+                });
+                
+                $(document).on("click", "#remove_reg", function() {
+                    $(".em-booking-message-error, .em-booking-message-success").remove();
+
+                    if(confirm('Remove all registration data ?')) {
+                        db.events.remove({}, { multi: true }, function (err, numRemoved) {
+                            if(err) {
+                                $('<div class="em-booking-message-error em-booking-message">'+err+'</div>').insertBefore($("#booking-form-api"));
+                                return false;
+                            }
+
+                            db.scanbcode.remove({}, { multi: true }, function (err, numRemoved) {
+                                if(err) {
+                                    $('<div class="em-booking-message-error em-booking-message">'+err+'</div>').insertBefore($("#booking-form-api"));
+                                    return false;
+                                }
+                                console.log(numRemoved);
+                            });
+
+                            $('<div class="em-booking-message-success em-booking-message">'+numRemoved +' has been removed.</div>').insertBefore($("#booking-form-api"));
+                        });
+                    }
+                    return false;
+                });  
+
+                $(document).on("click", "#remove_attendance", function() {
+                    $(".em-booking-message-error, .em-booking-message-success").remove();
+
+                    if(confirm('Remove all attendance data ?')) {
+                        db.scanbcode.remove({}, { multi: true }, function (err, numRemoved) {
+                            if(err) {
+                                $('<div class="em-booking-message-error em-booking-message">'+err+'</div>').insertBefore($("#booking-form-api"));
+                                return false;
+                            }
+                            $('<div class="em-booking-message-success em-booking-message">'+numRemoved +' has been removed.</div>').insertBefore($("#booking-form-api"));
+                        });
+                    }
+                    return false;
+                });
+
+                $("#booking-form-api").submit(function() {
+                    $(".em-booking-message-error, .em-booking-message-success").remove();
+                    
+                    var target = $("#api_url").val().replace(/\/$/,'');
+                    
+
+                    if( target == "" || $("#api_token").val() == "" ) {
+                        $('<div class="em-booking-message-error em-booking-message">All fields are required.</div>').insertBefore($("#booking-form-api"));
+                        return false;
+                    }
+
+                    db.settings.find({}, function (err, docs) {
+                        if(docs.length < 1) {
+                            db.settings.insert([{domain: target, api_token: $("#api_token").val()}], function (err) {
+                                if(err) {
+                                    $('<div class="em-booking-message-error em-booking-message">'+err+'</div>').insertBefore($("#booking-form-api"));    
+                                    return false
+                                }
+
+                                $('<div class="em-booking-message-success em-booking-message">Config Inserted.</div>').insertBefore($("#booking-form-api"));
+                            });
+                        } else {
+                            db.settings.update({ _id: docs[0]._id }, {domain: target, api_token: $("#api_token").val()}, {}, function (err, numReplaced) {
+
+                                if(err) {
+                                    $('<div class="em-booking-message-error em-booking-message">'+err+'</div>').insertBefore($("#booking-form-api"));    
+                                    return false
+                                }
+
+                                $('<div class="em-booking-message-success em-booking-message">Config Updated.</div>').insertBefore($("#booking-form-api"));                                
+                            });
+                        }
+                        
+                    });
+                    return false;
+                });
+            });
+
+            $('body').show();
+            NProgress.start();
+
+
+            jQuery(window).load(function () {
+                NProgress.done(); $('.has').removeClass('out');
+                NProgress.remove();
+            });
+
+            const shell = require('electron').shell;
+
+            $(document).on('click', 'a#viewbrowser', function(event) {
+                event.preventDefault();
+                var el = $(this);
+                var val = el.attr('href');
+                
+                if(val && !val.match(/^http([s]?):\/\/.*/)) {
+                    alert('Domain is not provided. Please update domain under settings.');
+                } else {
+                    shell.openExternal(this.href);
+                }
+                
+            }); 
+
+        </script>
+	</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "url": "ldaps://domain:port", 
+  "baseDN": "ldap_base_DN", 
+  "username": "ldap_username", 
+  "password": "ldap_password", 
+  "attributes": { "user": [] }  
+}
