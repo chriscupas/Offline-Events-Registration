@@ -7,6 +7,13 @@ Offline Event Registration
 This is an Offline Event Registration Built sometime in late 2015. Using Node JS and Angular JS. This will sync the offline data to the live one. 
 The live one for this is made with Wordpress and wp plugin [events manager](https://wordpress.org/plugins/events-manager/) and few customization.
 
+## Screenshots
+![Dashboard](/1.JPG?raw=true "Dashboard")
+![Registration Page](/2.JPG?raw=true "Registration Page")
+![Attendance Page, barcode ready](/3.JPG?raw=true "Attendance Page, barcode ready")
+![Registration lists](/4.JPG?raw=true "Registration lists")
+![Settings page](/5.JPG?raw=true "Settings page")
+
 ### Prerequisites
 
 Install Node JS
