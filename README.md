@@ -80,9 +80,9 @@ If you want to create a standalone version use [Inno Setup](http://www.jrsoftwar
 Please read [CONTRIBUTING.md](https://github.com/chriscupas/Offline-Events-Registration/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 
-## Authors
+## Author
 
-* **Christopher Cupas** - *From scratch to finish*
+* **Christopher Cupas**
 
 
 ## License
