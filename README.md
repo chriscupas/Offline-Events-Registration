@@ -82,7 +82,7 @@ Please read [CONTRIBUTING.md](https://github.com/chriscupas/Offline-Events-Regis
 
 ## Author
 
-* **Christopher Cupas**
+* **chriscupas**
 
 
 ## License
